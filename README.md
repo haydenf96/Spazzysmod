@@ -1,8 +1,7 @@
 Spazzysmod
 ==========
 
-Spazzy's Solar System Mod
+The code inside this repository is for the use of haydenf96 and anyone else he has chosen to help him with it.
+Under no circumstance is the code in this repository to be used and claimed as anothers work.
 
-This mod is under the ownership of Haydenf96 with all rights reserved. Use of this repository and source code against the will of the author will result in... something.
-
-So basically, please do not steal what is not yours. That would be greatly appreciated. Thank you - ModderPenguin (MrMewniverse)
+Curently for Minecraft Forge version 7.8.0.688
