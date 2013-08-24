@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -62,49 +63,19 @@ public class EntityExplosiveArrow extends EntityArrow {
         this.yOffset = 0.0F;
     }
 
-    public EntityExplosiveArrow(World par1World, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
+    public EntityExplosiveArrow(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLiving;
+        this.shootingEntity = par2EntityLivingBase;
 
-        if (par2EntityLiving instanceof EntityPlayer)
-        {
-            this.canBePickedUp = 1;
-        }
-
-        this.posY = par2EntityLiving.posY + (double)par2EntityLiving.getEyeHeight() - 0.10000000149011612D;
-        double d0 = par3EntityLiving.posX - par2EntityLiving.posX;
-        double d1 = par3EntityLiving.boundingBox.minY + (double)(par3EntityLiving.height / 3.0F) - this.posY;
-        double d2 = par3EntityLiving.posZ - par2EntityLiving.posZ;
-        double d3 = (double)MathHelper.sqrt_double(d0 * d0 + d2 * d2);
-
-        if (d3 >= 1.0E-7D)
-        {
-            float f2 = (float)(Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
-            float f3 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
-            double d4 = d0 / d3;
-            double d5 = d2 / d3;
-            this.setLocationAndAngles(par2EntityLiving.posX + d4, this.posY, par2EntityLiving.posZ + d5, f2, f3);
-            this.yOffset = 0.0F;
-            float f4 = (float)d3 * 0.2F;
-            this.setThrowableHeading(d0, d1 + (double)f4, d2, par4, par5);
-        }
-    }
-
-    public EntityExplosiveArrow(World par1World, EntityLiving par2EntityLiving, float par3)
-    {
-        super(par1World);
-        this.renderDistanceWeight = 10.0D;
-        this.shootingEntity = par2EntityLiving;
-
-        if (par2EntityLiving instanceof EntityPlayer)
+        if (par2EntityLivingBase instanceof EntityPlayer)
         {
             this.canBePickedUp = 1;
         }
 
         this.setSize(0.5F, 0.5F);
-        this.setLocationAndAngles(par2EntityLiving.posX, par2EntityLiving.posY + (double)par2EntityLiving.getEyeHeight(), par2EntityLiving.posZ, par2EntityLiving.rotationYaw, par2EntityLiving.rotationPitch);
+        this.setLocationAndAngles(par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
         this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
         this.posY -= 0.10000000149011612D;
         this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
@@ -115,7 +86,7 @@ public class EntityExplosiveArrow extends EntityArrow {
         this.motionY = (double)(-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI));
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, par3 * 1.5F, 1.0F);
     }
-
+    
     protected void entityInit()
     {
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));

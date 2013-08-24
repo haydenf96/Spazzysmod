@@ -17,19 +17,19 @@ public class MarsBlocks {
         marsRock = new BlockMarsRock(SpazzysConfig.marsRockID, Material.rock)
                 .setUnlocalizedName("marsRock");
         GameRegistry.registerBlock(marsRock,
-                SpazzysmodBase.modid + marsRock.getUnlocalizedName2());
+                SpazzysmodBase.modid + marsRock.getUnlocalizedName());
         LanguageRegistry.addName(marsRock, "Mars Rock");
 
         redRock = new BlockRedRock(SpazzysConfig.redRockID, Material.rock)
                 .setUnlocalizedName("redRock");
         GameRegistry.registerBlock(redRock,
-                SpazzysmodBase.modid + redRock.getUnlocalizedName2());
+                SpazzysmodBase.modid + redRock.getUnlocalizedName());
         LanguageRegistry.addName(redRock, "Red Rock");
 
         marsPortal = new BlockMarsPortal(SpazzysConfig.marsPortalID)
                 .setUnlocalizedName("marsPortal");
         GameRegistry.registerBlock(marsPortal,
-                SpazzysmodBase.modid + marsPortal.getUnlocalizedName2());
+                SpazzysmodBase.modid + marsPortal.getUnlocalizedName());
         LanguageRegistry.addName(marsPortal, "Mars Portal");
     }
 }

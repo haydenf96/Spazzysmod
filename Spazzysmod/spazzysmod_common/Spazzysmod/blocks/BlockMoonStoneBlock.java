@@ -20,7 +20,7 @@ public class BlockMoonStoneBlock extends Block {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
         this.blockIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
-                + this.getUnlocalizedName2());
+                + this.getUnlocalizedName());
     }
 
 }
