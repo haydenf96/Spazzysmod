@@ -1,9 +1,10 @@
 package Spazzysmod.entity.passive;
 
-import net.minecraft.block.BlockCloth;
+import net.minecraft.block.BlockColored;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIFollowParent;
@@ -20,6 +21,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -62,20 +64,17 @@ public class EntityGopher extends EntityTameable {
         this.tasks.addTask(3, new EntityAITempt(this, 0.25F,
                 Item.carrot.itemID, false));
         this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(5, new EntityAIAttackOnCollide(this, this.moveSpeed,
-                true));
-        this.tasks.addTask(6, new EntityAIFollowOwner(this, this.moveSpeed,
-                10.0F, 2.0F));
-        this.tasks.addTask(7, new EntityAIMate(this, this.moveSpeed));
-        this.tasks.addTask(8, new EntityAIWander(this, this.moveSpeed));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0D, true));
+        this.tasks.addTask(5, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
+        this.tasks.addTask(6, new EntityAIMate(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this,
                 EntityPlayer.class, 8.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(4, new EntityAITargetNonTamed(this,
-                EntityEnderman.class, 16.0F, 200, false));
+        this.targetTasks.addTask(4, new EntityAITargetNonTamed(this, EntityEnderman.class, 200, false));
         this.targetTasks.addTask(5, new EntityAIFollowParent(this, 0.25F));
     }
 
@@ -90,16 +89,20 @@ public class EntityGopher extends EntityTameable {
      * Called when the entity is attacked.
      */
     @Override
-    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
+    public boolean attackEntityFrom(DamageSource par1DamageSource, float par2)
+    {
         if (this.isEntityInvulnerable())
+        {
             return false;
-        else {
+        }
+        else
+        {
             Entity entity = par1DamageSource.getEntity();
             this.aiSit.setSitting(false);
 
-            if (entity != null && !(entity instanceof EntityPlayer)
-                    && !(entity instanceof EntityArrow)) {
-                par2 = (par2 + 1) / 2;
+            if (entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow))
+            {
+                par2 = (par2 + 1.0F) / 2.0F;
             }
 
             return super.attackEntityFrom(par1DamageSource, par2);
@@ -143,10 +146,9 @@ public class EntityGopher extends EntityTameable {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(18, new Integer(this.getHealth()));
-        this.dataWatcher.addObject(19, new Byte((byte) 0));
-        this.dataWatcher.addObject(20,
-                new Byte((byte) BlockCloth.getBlockFromDye(1)));
+        this.dataWatcher.addObject(18, new Float(this.func_110143_aJ()));
+        this.dataWatcher.addObject(19, new Byte((byte)0));
+        this.dataWatcher.addObject(20, new Byte((byte)BlockColored.getBlockFromDye(1)));
     }
 
     public void func_70918_i(boolean par1) {
@@ -220,10 +222,6 @@ public class EntityGopher extends EntityTameable {
                         : "mob.wolf.bark");
     }
 
-    @Override
-    public int getMaxHealth() {
-        return this.isTamed() ? 20 : 20;
-    }
 
     /**
      * Will return how many at most can spawn in a chunk at
@@ -333,7 +331,7 @@ public class EntityGopher extends EntityTameable {
                         return true;
                     }
                 } else if (itemstack.itemID == Item.dyePowder.itemID) {
-                    int i = BlockCloth.getBlockFromDye(itemstack
+                    int i = BlockColored.getBlockFromDye(itemstack
                             .getItemDamage());
 
                     if (i != this.getCollarColor()) {
@@ -536,11 +534,16 @@ public class EntityGopher extends EntityTameable {
      * Sets the active target the Task system uses for
      * tracking
      */
-    @Override
-    public void setAttackTarget(EntityLiving par1EntityLiving) {
-        super.setAttackTarget(par1EntityLiving);
+    public void setAttackTarget(EntityLivingBase par1EntityLivingBase)
+    {
+        super.setAttackTarget(par1EntityLivingBase);
 
-        if (par1EntityLiving instanceof EntityPlayer) {
+        if (par1EntityLivingBase == null)
+        {
+            this.setAngry(false);
+        }
+        else if (!this.isTamed())
+        {
             this.setAngry(true);
         }
     }
@@ -573,8 +576,9 @@ public class EntityGopher extends EntityTameable {
      * updateEntityActionState
      */
     @Override
-    protected void updateAITick() {
-        this.dataWatcher.updateObject(18, Integer.valueOf(this.getHealth()));
+    protected void updateAITick()
+    {
+        this.dataWatcher.updateObject(18, Float.valueOf(this.func_110143_aJ()));
     }
 
     /**
