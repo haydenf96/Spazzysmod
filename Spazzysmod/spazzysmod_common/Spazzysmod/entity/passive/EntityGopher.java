@@ -55,10 +55,7 @@ public class EntityGopher extends EntityTameable {
 
     public EntityGopher(World par1World) {
         super(par1World);
-        this.texture = "/mods/" + SpazzysmodBase.modid
-                + "/textures/models/Gopher.png";
         this.setSize(1.0F, 1.1F);
-        this.moveSpeed = 0.3F;
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAITempt(this, 0.25F,
