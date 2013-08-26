@@ -20,7 +20,7 @@ public class BlockCheeseBlock extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        this.blockIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
+        this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
                 + this.getUnlocalizedName());
     }
 

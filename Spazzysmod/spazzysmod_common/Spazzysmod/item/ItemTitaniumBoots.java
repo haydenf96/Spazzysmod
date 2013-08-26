@@ -16,8 +16,9 @@ public class ItemTitaniumBoots extends ItemArmor {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
-                + (this.getUnlocalizedName().substring(5)));
+    public void registerIcons(IconRegister par1IconRegister)
+ {
+        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:TitaniumBoots");
+               
     }
 }

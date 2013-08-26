@@ -11,6 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderGopher extends RenderLiving {
 
+ private static final ResourceLocation texture = new ResourceLocation("spazzysmod:textures/models/Gopher.png");
     protected ModelGopher ModelGopher;
 
     public RenderGopher() {
@@ -36,5 +37,15 @@ public class RenderGopher extends RenderLiving {
     public void renderTameEbby(EntityGopher par1EntityTameEbby, double par2,
             double par4, double par6, float par8, float par9) {
         super.doRenderLiving(par1EntityTameEbby, par2, par4, par6, par8, par9);
+    }
+
+    protected ResourceLocation func_110832_aEntityGopher par1EntityGopher)
+    {
+        return texture;
+    }
+
+    protected ResourceLocation func_110775_a(Entity par1Entity)
+    {
+        return this.func_110832_a((EntityGopher)par1Entity);
     }
 }

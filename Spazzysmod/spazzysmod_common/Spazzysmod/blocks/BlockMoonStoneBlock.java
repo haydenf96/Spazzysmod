@@ -15,11 +15,10 @@ public class BlockMoonStoneBlock extends Block {
         this.setCreativeTab(SpazzysTabs.tabMoon);
 
     }
-
-    @Override
+   @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        this.blockIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
+        this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
                 + this.getUnlocalizedName());
     }
 

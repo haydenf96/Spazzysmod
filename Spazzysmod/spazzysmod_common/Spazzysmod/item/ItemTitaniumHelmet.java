@@ -14,11 +14,10 @@ public class ItemTitaniumHelmet extends ItemArmor {
         super(par1, par2EnumArmorMaterial, par3, par4);
     }
 
-    @Override
+@Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
-                + (this.getUnlocalizedName().substring(5)));
+        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:TitaniumHelmet");
+              
     }
-
 }

@@ -23,10 +23,10 @@ public class TitaniumArmor extends ItemArmor {
         if (itemstack.itemID == SpazzysItems.titaniumHelmet.itemID
                 || itemstack.itemID == SpazzysItems.titaniumChestplate.itemID
                 || itemstack.itemID == SpazzysItems.titaniumBoots.itemID)
-            return "/mods/Spazzy_Spazzysmod/textures/armor/TITANIUMARMOR_1.png";
+            return "spazzysmod:/textures/armor/TITANIUMARMOR_1.png";
 
         if (itemstack.itemID == SpazzysItems.titaniumLeggings.itemID)
-            return "/mods/Spazzy_Spazzysmod/textures/armor/TITANIUMARMOR_2.png";
+            return "spazzysmod:/textures/armor/TITANIUMARMOR_2.png";
         else
             return null;
 
@@ -34,8 +34,9 @@ public class TitaniumArmor extends ItemArmor {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
+    public void registerIcons(IconRegister par1IconRegister) 
+{
+        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:"
                 + (this.getUnlocalizedName().substring(5)));
     }
 }

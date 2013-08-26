@@ -14,10 +14,10 @@ public class ItemTitaniumIngot extends Item {
         this.setCreativeTab(CreativeTabs.tabMaterials);
     }
 
-    @Override
+@Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
-                + (this.getUnlocalizedName().substring(5)));
+        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:titaniumIngot");
+              
     }
 }

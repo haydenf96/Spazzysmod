@@ -22,9 +22,9 @@ public class ItemExplosiveBow extends ItemBow {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(SpazzysmodBase.modid + ":"
-                + (this.getUnlocalizedName().substring(5)));
+    public void registerIcons(IconRegister par1IconRegister) 
+{
+        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:explosivebow");
     }
     public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
     {
