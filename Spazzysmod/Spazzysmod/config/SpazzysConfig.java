@@ -12,6 +12,7 @@ public class SpazzysConfig {
     public static int marsRockID;
     public static int redRockID;
     public static int marsPortalID;
+    public static int rocketID;
 
     public static int titaniumIngotID;
     public static int titaniumSwordID;
@@ -31,7 +32,7 @@ public class SpazzysConfig {
 
         // blocks
         cheeseBlockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
-                "Cheese Block ID", 250, "CheeseBlockID").getInt();
+                "Cheese Block ID", 2500, "CheeseBlockID").getInt();
         moonPortalID = config.get(Configuration.CATEGORY_BLOCK,
                 "Moon Portal ID", 500).getInt();
         moonDirtID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
@@ -43,9 +44,12 @@ public class SpazzysConfig {
         marsPortalID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "mars Portal ID", 510, "marsPortalID").getInt();
         redRockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
-                "red Rock ID", 511, "redRockID").getInt();
+                "red Rock ID", 5110, "redRockID").getInt();
         marsRockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "mars Rock ID", 251, "marsRockID").getInt();
+
+       rocketID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
+                "Rocket Block ID", 2900, "CheeseBlockID").getInt();
 
         // items
         titaniumIngotID = config.get(Configuration.CATEGORY_ITEM,
