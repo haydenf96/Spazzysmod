@@ -22,6 +22,13 @@ public class SpazzysmodBase {
 	{
 		Minecraft.getMinecraft().displayGuiScreen(guiScreen);
 	}
+	
+public static void travelToDimension(int dimensionID, EntityPlayerMP player)
+	{
+		EntityPlayerMP thePlayer =  player;
+		
+		thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer,dimensionID,new TeleporterSpazzys(thePlayer.mcServer.worldServerForDimension(dimensionID)));
+	}
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
