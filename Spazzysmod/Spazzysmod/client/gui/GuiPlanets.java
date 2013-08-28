@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.StringTranslate;
-import Spazzysmod.Spazzysmod;
+import Spazzysmod.SpazzysmodBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -29,12 +29,11 @@ public class GuiPlanets extends GuiScreen
 	 */
 	public void initGui()
 	{
-		StringTranslate stringtranslate = StringTranslate.getInstance();
 		this.buttonList.clear();
-		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, stringtranslate.translateKey("Overworld")));
-		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, stringtranslate.translateKey("Moon")));
-		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, stringtranslate.translateKey("Mars")));
-		this.screenTitle = stringtranslate.translateKey("Select a planet");
+		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, "Overworld"));
+		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, "Moon"));
+		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, "Mars"));
+		this.screenTitle = "Select a planet";
 	}
 
 	/**
@@ -49,7 +48,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 0)
 			{
-				Spazzysmod.travelToDimension(0, thePlayer);
+				SpazzysmodBase.travelToDimension(0, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -60,9 +59,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 1)
 		{
-			if(thePlayer.dimension != Spazzysmod.moonDimensionID)
+			if(thePlayer.dimension != 10)
 			{
-				Spazzysmod.travelToDimension(Spazzysmod.moonDimensionID, thePlayer);
+				SpazzysmodBase.travelToDimension(10, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -74,9 +73,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 2)
 		{
-			if(thePlayer.dimension != Spazzysmod.marsDimensionID)
+			if(thePlayer.dimension != 12)
 			{
-				Spazzysmod.travelToDimension(Spazzysmod.marsDimensionID, thePlayer);
+				Spazzysmod.travelToDimension(12, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
