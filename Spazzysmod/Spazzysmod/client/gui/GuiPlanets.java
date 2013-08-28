@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.StringTranslate;
-import Spazzysmod.SpazzysmodBase;
+import Spazzysmod.Spazzysmod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -48,7 +48,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 0)
 			{
-				SpazzysmodBase.travelToDimension(0, thePlayer);
+				Spazzysmod.travelToDimension(0, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -59,9 +59,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 1)
 		{
-			if(thePlayer.dimension != 10)
+			if(thePlayer.dimension != Spazzysmod.moonDimensionID)
 			{
-				SpazzysmodBase.travelToDimension(10, thePlayer);
+				Spazzysmod.travelToDimension(Spazzysmod.moonDimensionID, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -73,9 +73,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 2)
 		{
-			if(thePlayer.dimension != 12)
+			if(thePlayer.dimension != Spazzysmod.marsDimensionID)
 			{
-				Spazzysmod.travelToDimension(12, thePlayer);
+				Spazzysmod.travelToDimension(Spazzysmod.marsDimensionID, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else

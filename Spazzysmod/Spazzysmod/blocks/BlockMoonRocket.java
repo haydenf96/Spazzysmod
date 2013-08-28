@@ -162,13 +162,13 @@ public class BlockMoonRocket extends Block
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon(Spazzysmod.modid + ":"
-				+ this.getUnlocalizedName2());
-		this.bottom =  par1IconRegister.registerIcon(Spazzysmod.modid + ":"
-				+ "bottom" + this.getUnlocalizedName2());
+		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
+				+ this.getUnlocalizedName());
+		this.bottom =  par1IconRegister.registerIcon("spazzysmod:"
+				+ "bottom" + this.getUnlocalizedName());
 
-		this.top =  par1IconRegister.registerIcon(Spazzysmod.modid + ":"
-				+ "top" + this.getUnlocalizedName2());
+		this.top =  par1IconRegister.registerIcon("spazzysmod:"
+				+ "top" + this.getUnlocalizedName());
 	}
 
 }
