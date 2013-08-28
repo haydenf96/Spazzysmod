@@ -59,9 +59,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 1)
 		{
-			if(thePlayer.dimension != Spazzysmod.moonDimensionID)
+			if(thePlayer.dimension != 10)
 			{
-				Spazzysmod.travelToDimension(Spazzysmod.moonDimensionID, thePlayer);
+				Spazzysmod.travelToDimension(10, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -73,9 +73,9 @@ public class GuiPlanets extends GuiScreen
 
 		if (par1GuiButton.id == 2)
 		{
-			if(thePlayer.dimension != Spazzysmod.marsDimensionID)
+			if(thePlayer.dimension != 12)
 			{
-				Spazzysmod.travelToDimension(Spazzysmod.marsDimensionID, thePlayer);
+				Spazzysmod.travelToDimension(12, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
