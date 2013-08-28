@@ -18,6 +18,11 @@ public class SpazzysmodBase {
 
     public static final String modid = "Spazzy_Spazzysmod";
 
+    public static void displayGUISpazzys(GuiScreen guiScreen)
+	{
+		Minecraft.getMinecraft().displayGuiScreen(guiScreen);
+	}
+
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         SpazzysConfig.initConfig(new Configuration(event
