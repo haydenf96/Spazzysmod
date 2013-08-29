@@ -347,9 +347,7 @@ public class ChunkManagerMars implements IChunkProvider {
                 par3, par4, par5, par6, par7, var44, var45, var44);
         this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, par2,
                 par3, par4, par5, par6, par7, var44, var45, var44);
-        @SuppressWarnings("unused")
         boolean var43 = false;
-        @SuppressWarnings("unused")
         boolean var42 = false;
         int var12 = 0;
         int var13 = 0;

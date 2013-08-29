@@ -149,7 +149,6 @@ public class EntityGopher extends EntityTameable {
     }
 
     public void func_70918_i(boolean par1) {
-        @SuppressWarnings("unused")
         byte b0 = this.dataWatcher.getWatchableObjectByte(19);
 
         if (par1) {

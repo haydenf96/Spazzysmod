@@ -162,12 +162,12 @@ public class BlockMoonRocket extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
 		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
-				+ this.getUnlocalizedName());
+				+ this.getUnlocalizedName().substring(5));
 		this.bottom =  par1IconRegister.registerIcon("spazzysmod:"
-				+ "bottom" + this.getUnlocalizedName());
+				+ "bottom" + this.getUnlocalizedName().substring(5));
 
 		this.top =  par1IconRegister.registerIcon("spazzysmod:"
-				+ "top" + this.getUnlocalizedName());
+				+ "top" + this.getUnlocalizedName().substring(5));
 	}
 
 }
