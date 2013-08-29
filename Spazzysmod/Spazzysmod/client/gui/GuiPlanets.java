@@ -9,8 +9,6 @@ import Spazzysmod.SpazzysmodBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-
-
 @SideOnly(Side.CLIENT)
 public class GuiPlanets extends GuiScreen
 {
@@ -48,7 +46,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 0)
 			{
-				Spazzysmod.travelToDimension(0, thePlayer);
+				SpazzysmodBase.travelToDimension(0, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -61,7 +59,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 10)
 			{
-				Spazzysmod.travelToDimension(10, thePlayer);
+				SpazzysmodBase.travelToDimension(10, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -75,7 +73,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 12)
 			{
-				Spazzysmod.travelToDimension(12, thePlayer);
+				SpazzysmodBase.travelToDimension(12, thePlayer);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else

@@ -8,13 +8,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityDaylightDetector;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import Spazzysmod.Spazzysmod;
+import Spazzysmod.SpazzysmodBase;
 import Spazzysmod.client.gui.GuiPlanets;
+import Spazzysmod.creativetab.SpazzysTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -31,7 +30,7 @@ public class BlockMoonRocket extends Block
 
 	public BlockMoonRocket(int id, Material par2Material) {
 		super(id, par2Material);
-		this.setCreativeTab(Spazzysmod.MoonTab);
+		this.setCreativeTab(SpazzysTabs.tabMoon);
 	}
 
 	/**
@@ -104,7 +103,7 @@ public class BlockMoonRocket extends Block
 			{
 				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
 				{
-					Spazzysmod.displayGUISpazzys(new GuiPlanets(par5EntityPlayer));
+					SpazzysmodBase.displayGUISpazzys(new GuiPlanets(par5EntityPlayer));
 					par1World.setBlockToAir(x, y, z);
 					par1World.setBlockToAir(x, y + 1, z);
 					par1World.setBlockToAir(x, y + 2, z);
