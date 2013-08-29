@@ -21,7 +21,7 @@ public class SpazzysBlocks {
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
 		GameRegistry.registerWorldGenerator(new TitaniumWorldGenerator());
 
-		rocketBlock = new BlockMoonRocket(SpazzysConfig.rocketID,
+		rocketBlock= new BlockMoonRocket(SpazzysConfig.rocketID,
 				Material.iron).setUnlocalizedName("titaniumBlock");
 		GameRegistry.registerBlock(rocketBlock);
 		LanguageRegistry.addName(rocketBlock, "Rocket Engine");

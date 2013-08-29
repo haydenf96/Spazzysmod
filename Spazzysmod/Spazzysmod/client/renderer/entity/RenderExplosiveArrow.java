@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -15,9 +16,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderExplosiveArrow extends Render
 {
+	   private static final ResourceLocation field_110780_a = new ResourceLocation("spazzysmod:textures/entity/arrow.png");
     public void renderGlassArrow(EntityExplosiveArrow par1EntityGlassArrow, double par2, double par4, double par6, float par8, float par9)
     {
-        this.loadTexture("Arrows/explosiveArrows.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
         GL11.glRotatef(par1EntityGlassArrow.prevRotationYaw + (par1EntityGlassArrow.rotationYaw - par1EntityGlassArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -84,4 +85,10 @@ public class RenderExplosiveArrow extends Render
     public RenderExplosiveArrow(EntityExplosiveArrow par1Entity, double par2,
             double par4, double par6, float par8, float par9) {	
     }
+
+	@Override
+	protected ResourceLocation func_110775_a(Entity entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

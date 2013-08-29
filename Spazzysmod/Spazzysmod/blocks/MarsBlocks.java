@@ -11,7 +11,6 @@ public class MarsBlocks {
 
     public static Block marsRock;
     public static Block redRock;
-    public static Block marsPortal;
 
     public static void initBlocks() {
         marsRock = new BlockMarsRock(SpazzysConfig.marsRockID, Material.rock)
@@ -26,10 +25,5 @@ public class MarsBlocks {
                 SpazzysmodBase.modid + redRock.getUnlocalizedName());
         LanguageRegistry.addName(redRock, "Red Rock");
 
-        marsPortal = new BlockMarsPortal(SpazzysConfig.marsPortalID)
-                .setUnlocalizedName("marsPortal");
-        GameRegistry.registerBlock(marsPortal,
-                SpazzysmodBase.modid + marsPortal.getUnlocalizedName());
-        LanguageRegistry.addName(marsPortal, "Mars Portal");
     }
 }

@@ -9,7 +9,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class MoonBlocks {
 
     public static Block cheeseBlock;
-    public static Block moonPortal;
     public static Block moonDirt;
     public static Block moonStone;
 
@@ -19,12 +18,7 @@ public class MoonBlocks {
                 Material.rock).setUnlocalizedName("cheeseBlock");
         GameRegistry.registerBlock(cheeseBlock);
         LanguageRegistry.addName(cheeseBlock, "Block of Cheese");
-
-        moonPortal = new BlockMoonPortal(SpazzysConfig.moonPortalID)
-                .setUnlocalizedName("portal");
-        GameRegistry.registerBlock(moonPortal);
-        LanguageRegistry.addName(moonPortal, "Moon Portal");
-
+        
         moonDirt = new BlockMoonDirtBlock(SpazzysConfig.moonDirtID,
                 Material.rock).setUnlocalizedName("moonDirt");
         GameRegistry.registerBlock(moonDirt);

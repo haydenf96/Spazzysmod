@@ -13,15 +13,6 @@ public class ReciperManager {
     public static void initRecipes() {
         GameRegistry.addRecipe(new ItemStack(MoonBlocks.cheeseBlock),
                 new Object[] { "   ", " X ", "   ", 'X', Item.bucketMilk });
-
-        GameRegistry.addRecipe(new ItemStack(MoonBlocks.moonPortal),
-                new Object[] { "XXX", "XYX", "XXX", 'X',
-                        MoonBlocks.cheeseBlock, 'Y', Item.flintAndSteel });
-
-        GameRegistry.addRecipe(new ItemStack(MarsBlocks.marsPortal),
-                new Object[] { "XXX", "XYX", "XXX", 'X', MarsBlocks.redRock,
-                        'Y', Item.flintAndSteel });
-
         GameRegistry.addRecipe(new ItemStack(SpazzysItems.titaniumHelmet),
                 new Object[] { "   ", "XXX", "X X", 'X',
                         SpazzysItems.titaniumIngot, 'Y', Item.diamond });

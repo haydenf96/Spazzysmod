@@ -3,6 +3,7 @@ package Spazzysmod.client.renderer.entity;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 import Spazzysmod.client.model.ModelGopher;
 import Spazzysmod.entity.passive.EntityGopher;
 import cpw.mods.fml.relauncher.Side;
@@ -39,7 +40,7 @@ public class RenderGopher extends RenderLiving {
         super.doRenderLiving(par1EntityTameEbby, par2, par4, par6, par8, par9);
     }
 
-    protected ResourceLocation func_110832_aEntityGopher par1EntityGopher)
+    protected ResourceLocation func_110832_a(EntityGopher par1EntityGopher)
     {
         return texture;
     }

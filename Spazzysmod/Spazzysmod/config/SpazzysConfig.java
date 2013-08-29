@@ -5,13 +5,11 @@ import net.minecraftforge.common.Configuration;
 public class SpazzysConfig {
 
     public static int cheeseBlockID;
-    public static int moonPortalID;
     public static int moonDirtID;
     public static int moonStoneID;
     public static int titaniumBlockID;
     public static int marsRockID;
     public static int redRockID;
-    public static int marsPortalID;
     public static int rocketID;
 
     public static int titaniumIngotID;
@@ -33,16 +31,12 @@ public class SpazzysConfig {
         // blocks
         cheeseBlockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "Cheese Block ID", 2500, "CheeseBlockID").getInt();
-        moonPortalID = config.get(Configuration.CATEGORY_BLOCK,
-                "Moon Portal ID", 500).getInt();
         moonDirtID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "Moon Dirt ID", 255, "MoonDirtID").getInt();
         moonStoneID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "Moon Stone ID", 254, "MoonStoneID").getInt();
         titaniumBlockID = config.get(Configuration.CATEGORY_BLOCK,
                 "Titanium Block ID", 501).getInt();
-        marsPortalID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
-                "mars Portal ID", 510, "marsPortalID").getInt();
         redRockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
                 "red Rock ID", 5110, "redRockID").getInt();
         marsRockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
