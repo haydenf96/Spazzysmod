@@ -65,6 +65,7 @@ public class SpazzysConfig {
 		titaniumBootsID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Boots ID", 5005).getInt();
 
+
 		config.save();
 	}
 }
