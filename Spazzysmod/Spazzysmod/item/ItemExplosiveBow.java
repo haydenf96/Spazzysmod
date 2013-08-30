@@ -1,4 +1,4 @@
-package Spazzysmod.item;
+package spazzysmod.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
@@ -9,8 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-import Spazzysmod.SpazzysmodBase;
-import Spazzysmod.entity.projectile.EntityExplosiveArrow;
+import spazzysmod.entity.projectile.EntityExplosiveArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

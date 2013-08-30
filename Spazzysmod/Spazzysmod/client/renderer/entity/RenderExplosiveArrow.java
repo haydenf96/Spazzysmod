@@ -1,4 +1,4 @@
-package Spazzysmod.client.renderer.entity;
+package spazzysmod.client.renderer.entity;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import Spazzysmod.entity.projectile.EntityExplosiveArrow;
+import spazzysmod.entity.projectile.EntityExplosiveArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

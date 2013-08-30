@@ -1,9 +1,8 @@
-package Spazzysmod.blocks;
+package spazzysmod.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import Spazzysmod.SpazzysmodBase;
-import Spazzysmod.config.SpazzysConfig;
+import spazzysmod.config.SpazzysConfig;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -16,13 +15,13 @@ public class MarsBlocks {
         marsRock = new BlockMarsRock(SpazzysConfig.marsRockID, Material.rock)
                 .setUnlocalizedName("marsRock");
         GameRegistry.registerBlock(marsRock,
-                SpazzysmodBase.modid + marsRock.getUnlocalizedName());
+                "spazzysmod" + marsRock.getUnlocalizedName());
         LanguageRegistry.addName(marsRock, "Mars Rock");
 
         redRock = new BlockRedRock(SpazzysConfig.redRockID, Material.rock)
                 .setUnlocalizedName("redRock");
         GameRegistry.registerBlock(redRock,
-                SpazzysmodBase.modid + redRock.getUnlocalizedName());
+                "spazzysmod" + redRock.getUnlocalizedName());
         LanguageRegistry.addName(redRock, "Red Rock");
 
     }

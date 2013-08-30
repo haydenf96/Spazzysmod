@@ -1,7 +1,7 @@
-package Spazzysmod.creativetab;
+package spazzysmod.creativetab;
 
 import net.minecraft.creativetab.CreativeTabs;
-import Spazzysmod.blocks.SpazzysBlocks;
+import spazzysmod.blocks.SpazzysBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

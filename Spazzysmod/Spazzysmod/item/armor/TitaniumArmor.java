@@ -1,12 +1,11 @@
-package Spazzysmod.item.armor;
+package spazzysmod.item.armor;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import Spazzysmod.SpazzysmodBase;
-import Spazzysmod.item.SpazzysItems;
+import spazzysmod.item.SpazzysItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

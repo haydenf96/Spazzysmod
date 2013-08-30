@@ -1,7 +1,7 @@
-package Spazzysmod.world;
+package spazzysmod.world;
 
 import net.minecraftforge.common.DimensionManager;
-import Spazzysmod.world.biome.SpazzysBiomes;
+import spazzysmod.world.biome.SpazzysBiomes;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class SpazzysDimensions {

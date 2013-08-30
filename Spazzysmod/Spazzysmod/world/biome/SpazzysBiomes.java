@@ -1,4 +1,4 @@
-package Spazzysmod.world.biome;
+package spazzysmod.world.biome;
 
 import net.minecraft.world.biome.BiomeGenBase;
 

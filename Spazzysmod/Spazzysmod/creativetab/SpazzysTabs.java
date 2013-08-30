@@ -1,4 +1,4 @@
-package Spazzysmod.creativetab;
+package spazzysmod.creativetab;
 
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.registry.LanguageRegistry;

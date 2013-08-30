@@ -1,13 +1,13 @@
-package Spazzysmod.item;
+package spazzysmod.item;
 
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
-import Spazzysmod.config.SpazzysConfig;
-import Spazzysmod.creativetab.SpazzysTabs;
-import Spazzysmod.item.armor.TitaniumArmor;
+import spazzysmod.config.SpazzysConfig;
+import spazzysmod.creativetab.SpazzysTabs;
+import spazzysmod.item.armor.TitaniumArmor;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

@@ -1,4 +1,4 @@
-package Spazzysmod.blocks;
+package spazzysmod.blocks;
 
 import java.util.Random;
 
@@ -11,13 +11,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import Spazzysmod.SpazzysmodBase;
-import Spazzysmod.client.gui.GuiPlanets;
-import Spazzysmod.creativetab.SpazzysTabs;
+import spazzysmod.SpazzysmodBase;
+import spazzysmod.client.gui.GuiPlanets;
+import spazzysmod.creativetab.SpazzysTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockMoonRocket extends Block 
+public class BlockRocketEngine extends Block 
 {
 
 
@@ -28,7 +28,7 @@ public class BlockMoonRocket extends Block
 
 	Minecraft mc;
 
-	public BlockMoonRocket(int id, Material par2Material) {
+	public BlockRocketEngine(int id, Material par2Material) {
 		super(id, par2Material);
 		this.setCreativeTab(SpazzysTabs.tabMoon);
 	}

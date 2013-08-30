@@ -1,15 +1,13 @@
-package Spazzysmod.client.gui;
+package spazzysmod.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.StringTranslate;
-import Spazzysmod.SpazzysmodBase;
+import spazzysmod.api.planets.PlanetAPI;
+import spazzysmod.planets.SpazzysPlanets;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-
 
 @SideOnly(Side.CLIENT)
 public class GuiPlanets extends GuiScreen
@@ -23,6 +21,7 @@ public class GuiPlanets extends GuiScreen
 		player = (EntityPlayerMP) par1EntityPlayer;
 	}
 
+	private GuiButton overworld, moon, mars;
 
 	/**
 	 * Adds the buttons (and other controls) to the screen in question.
@@ -30,9 +29,17 @@ public class GuiPlanets extends GuiScreen
 	public void initGui()
 	{
 		this.buttonList.clear();
-		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, "Overworld"));
-		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, "Moon"));
-		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, "Mars"));
+		this.buttonList.add(overworld = new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, "Overworld"));
+		this.buttonList.add(moon = new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, SpazzysPlanets.MOON.getPlanetName()));
+		this.buttonList.add(mars = new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, SpazzysPlanets.MARS.getPlanetName()));
+		
+		if ( player.dimension == 0 )
+			overworld.enabled = false;
+		else if ( player.dimension == SpazzysPlanets.MOON.getPlanetDimensionID() )
+			moon.enabled = false;
+		else if ( player.dimension == SpazzysPlanets.MARS.getPlanetDimensionID() )
+			mars.enabled = false;
+		
 		this.screenTitle = "Select a planet";
 	}
 
@@ -48,7 +55,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 0)
 			{
-				SpazzysmodBase.travelToDimension(0, thePlayer);
+				PlanetAPI.travelToOverworld(player);
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -61,7 +68,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 10)
 			{
-				SpazzysmodBase.travelToDimension(10, thePlayer);
+				PlanetAPI.travelToDimension( SpazzysPlanets.MOON, thePlayer );
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
@@ -75,7 +82,7 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 12)
 			{
-				SpazzysmodBase.travelToDimension(12, thePlayer);
+				PlanetAPI.travelToDimension( SpazzysPlanets.MARS, thePlayer );
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else

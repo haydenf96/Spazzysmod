@@ -1,4 +1,4 @@
-package Spazzysmod.config;
+package spazzysmod.config;
 
 import net.minecraftforge.common.Configuration;
 

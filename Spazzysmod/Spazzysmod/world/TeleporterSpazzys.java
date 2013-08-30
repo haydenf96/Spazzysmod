@@ -1,4 +1,4 @@
-package Spazzysmod.world;
+package spazzysmod.world;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,8 +11,7 @@ import net.minecraft.util.LongHashMap;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-import Spazzysmod.SpazzysmodBase;
-import Spazzysmod.blocks.SpazzysBlocks;
+import spazzysmod.blocks.SpazzysBlocks;
 
 public class TeleporterSpazzys extends Teleporter {
 
@@ -44,8 +43,6 @@ public class TeleporterSpazzys extends Teleporter {
 		world.setBlock((int)entity.posX + 2, (int)entity.posY, (int)entity.posZ, Block.fence.blockID);
 		world.setBlock((int)entity.posX + 3, (int)entity.posY, (int)entity.posZ - 1, Block.fence.blockID);
 		world.setBlock((int)entity.posX + 3, (int)entity.posY, (int)entity.posZ + 1, Block.fence.blockID);
-
-
 
 		return true;
 	}

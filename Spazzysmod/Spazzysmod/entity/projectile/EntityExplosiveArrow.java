@@ -1,4 +1,4 @@
-package Spazzysmod.entity.projectile;
+package spazzysmod.entity.projectile;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -24,7 +23,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class EntityExplosiveArrow extends EntityArrow {
+public class EntityExplosiveArrow extends Entity {
     
     private int xTile = -1;
     private int yTile = -1;
@@ -290,11 +289,11 @@ public class EntityExplosiveArrow extends EntityArrow {
 
                     if (this.shootingEntity == null)
                     {
-                        damagesource = DamageSource.causeArrowDamage(this, this);
+                        damagesource = DamageSource.causeThrownDamage(this, this);
                     }
                     else
                     {
-                        damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
+                        damagesource = DamageSource.causeThrownDamage(this, this.shootingEntity);
                         
                         for(int z = 0; z < 1; z++) {
                             this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3, true);

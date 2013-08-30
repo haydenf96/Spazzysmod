@@ -1,10 +1,10 @@
-package Spazzysmod.entity;
+package spazzysmod.entity;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
-import Spazzysmod.client.renderer.entity.RenderGopher;
-import Spazzysmod.entity.passive.EntityGopher;
-import Spazzysmod.world.biome.SpazzysBiomes;
+import spazzysmod.client.renderer.entity.RenderGopher;
+import spazzysmod.entity.passive.EntityGopher;
+import spazzysmod.world.biome.SpazzysBiomes;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;

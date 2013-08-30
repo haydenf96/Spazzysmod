@@ -1,11 +1,11 @@
-package Spazzysmod.world;
+package spazzysmod.world;
 
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
-import Spazzysmod.world.biome.SpazzysBiomes;
-import Spazzysmod.world.chunk.ChunkManagerMars;
+import spazzysmod.world.biome.SpazzysBiomes;
+import spazzysmod.world.chunk.ChunkManagerMars;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -50,8 +50,7 @@ public class WorldProviderMars extends WorldProvider {
 
     @Override
     public IChunkProvider createChunkGenerator() {
-        return new ChunkManagerMars(this.worldObj, this.worldObj.getSeed(),
-                hasNoSky);
+        return new ChunkManagerMars(this.worldObj, this.worldObj.getSeed(), hasNoSky);
     }
 
     /**

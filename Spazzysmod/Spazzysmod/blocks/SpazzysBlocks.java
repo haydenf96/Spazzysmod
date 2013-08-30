@@ -1,9 +1,9 @@
-package Spazzysmod.blocks;
+package spazzysmod.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import Spazzysmod.config.SpazzysConfig;
-import Spazzysmod.world.gen.feature.TitaniumWorldGenerator;
+import spazzysmod.config.SpazzysConfig;
+import spazzysmod.world.gen.feature.TitaniumWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -21,7 +21,7 @@ public class SpazzysBlocks {
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
 		GameRegistry.registerWorldGenerator(new TitaniumWorldGenerator());
 
-		rocketBlock= new BlockMoonRocket(SpazzysConfig.rocketID,
+		rocketBlock= new BlockRocketEngine(SpazzysConfig.rocketID,
 				Material.iron).setUnlocalizedName("moonRocket");
 		GameRegistry.registerBlock(rocketBlock);
 		LanguageRegistry.addName(rocketBlock, "Rocket Engine");

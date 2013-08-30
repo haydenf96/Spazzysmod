@@ -1,11 +1,11 @@
-package Spazzysmod.world.gen.feature;
+package spazzysmod.world.gen.feature;
 
 import java.util.Random;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import Spazzysmod.blocks.SpazzysBlocks;
+import spazzysmod.blocks.SpazzysBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class TitaniumWorldGenerator implements IWorldGenerator {
