@@ -26,6 +26,8 @@ public class SpazzysmodBase {
 	
 	public static final String modid = "Spazzy_Spazzysmod";
 
+//Test comment
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		SpazzysConfig.initConfig(new Configuration(event
