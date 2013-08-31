@@ -30,7 +30,7 @@ public class BlockRocketEngine extends Block
 
 	public BlockRocketEngine(int id, Material par2Material) {
 		super(id, par2Material);
-		this.setCreativeTab(SpazzysTabs.tabMoon);
+		this.setCreativeTab(SpazzysTabs.tabSolarSystem);
 	}
 
 	/**
@@ -116,6 +116,7 @@ public class BlockRocketEngine extends Block
 					par1World.setBlockToAir(x + 1, y - 1, z);
 					par1World.setBlockToAir(x, y - 1, z - 1);
 					par1World.setBlockToAir(x - 1, y - 1, z);
+					
 				}
 			}
 

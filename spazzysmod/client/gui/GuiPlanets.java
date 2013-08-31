@@ -1,10 +1,14 @@
 package spazzysmod.client.gui;
 
+import intergalacticTravelMod.item.IntergalacticTravelModItems;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import spazzysmod.SpazzysmodBase;
+import spazzysmod.item.SpazzysItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -47,11 +51,18 @@ public class GuiPlanets extends GuiScreen
 		{
 			if(thePlayer.dimension != 0)
 			{
+				
 				SpazzysmodBase.travelToDimension(0, thePlayer);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
 			{
+				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 		}
@@ -61,11 +72,17 @@ public class GuiPlanets extends GuiScreen
 			if(thePlayer.dimension != 10)
 			{
 				SpazzysmodBase.travelToDimension(10, thePlayer);
+				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
 			{
 				this.mc.displayGuiScreen((GuiScreen)null);
+				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 			}
 			
 		}
@@ -75,11 +92,17 @@ public class GuiPlanets extends GuiScreen
 			if(thePlayer.dimension != 12)
 			{
 				SpazzysmodBase.travelToDimension(12, thePlayer);
+				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
 			}
 			else
 			{
 				this.mc.displayGuiScreen((GuiScreen)null);
+				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
+				entityitem.delayBeforeCanPickup = 0;
 			}
 		}
 

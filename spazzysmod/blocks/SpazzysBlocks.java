@@ -11,6 +11,7 @@ public class SpazzysBlocks {
 
 	public static Block titaniumBlock;
 	public static Block rocketBlock;
+	public static Block launchPad;
 
 	@SuppressWarnings("deprecation")
 	public static void initBlocks()
@@ -25,6 +26,11 @@ public class SpazzysBlocks {
 				Material.iron).setUnlocalizedName("moonRocket");
 		GameRegistry.registerBlock(rocketBlock);
 		LanguageRegistry.addName(rocketBlock, "Rocket Engine");
+		
+		launchPad= new BlockLaunchPad(SpazzysConfig.launchPadID,
+				Material.iron).setUnlocalizedName("launchPad");
+		GameRegistry.registerBlock(launchPad);
+		LanguageRegistry.addName(launchPad, "Launch Pad");
 
 		MoonBlocks.initBlocks();
 		MarsBlocks.initBlocks();

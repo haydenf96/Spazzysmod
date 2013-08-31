@@ -8,6 +8,7 @@ public class SpazzysConfig {
 	public static int moonDirtID;
 	public static int moonStoneID;
 	public static int titaniumBlockID;
+	public static int launchPadID;
 	public static int marsRockID;
 	public static int redRockID;
 	public static int rocketID;
@@ -17,17 +18,19 @@ public class SpazzysConfig {
 	public static int explosiveArrowID;
 	public static int explosiveBowID;
 
+	public static int spaceshipID;
+
 	public static int titaniumHelmetID;
 	public static int titaniumChestplateID;
 	public static int titaniumLeggingsID;
 	public static int titaniumBootsID;
 
-    public static int spaceHelmetID;
-    public static int spaceJacketID;
-    public static int spacePantsID;
-    public static int spaceShoesID;
+	public static int spaceHelmetID;
+	public static int spaceJacketID;
+	public static int spacePantsID;
+	public static int spaceShoesID;
 
-	
+
 	private static Configuration config;
 
 	public static void initConfig(Configuration configuration) {
@@ -51,6 +54,9 @@ public class SpazzysConfig {
 		rocketID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
 				"Rocket Block ID", 2900, "CheeseBlockID").getInt();
 
+		launchPadID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
+				"Launch Pad ID", 2501, "LaunchPadID").getInt();
+
 		// items
 		titaniumIngotID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Ingot ID", 5000).getInt();
@@ -61,6 +67,10 @@ public class SpazzysConfig {
 		explosiveBowID = config.get(Configuration.CATEGORY_ITEM,
 				"Explosive Bow ID", 5007).getInt();
 
+		spaceshipID = config.get(Configuration.CATEGORY_ITEM,
+				"Spaceship ID", 5008).getInt();
+
+		
 		// armor
 		titaniumHelmetID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Helmet ID", 5002).getInt();
@@ -70,15 +80,15 @@ public class SpazzysConfig {
 				"Titanium Leggings ID", 5004).getInt();
 		titaniumBootsID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Boots ID", 5005).getInt();
-		
+
 		spaceHelmetID = config.get(Configuration.CATEGORY_ITEM,
-                "Titanium Helmet ID", 5012).getInt();
-        spaceJacketID = config.get(Configuration.CATEGORY_ITEM,
-                "Titanium Chestplate ID", 5013).getInt();
-        spacePantsID = config.get(Configuration.CATEGORY_ITEM,
-                "Titanium Leggings ID", 5014).getInt();
-        spaceShoesID = config.get(Configuration.CATEGORY_ITEM,
-                "Titanium Boots ID", 5015).getInt();
+				"Titanium Helmet ID", 5012).getInt();
+		spaceJacketID = config.get(Configuration.CATEGORY_ITEM,
+				"Titanium Chestplate ID", 5013).getInt();
+		spacePantsID = config.get(Configuration.CATEGORY_ITEM,
+				"Titanium Leggings ID", 5014).getInt();
+		spaceShoesID = config.get(Configuration.CATEGORY_ITEM,
+				"Titanium Boots ID", 5015).getInt();
 
 		config.save();
 	}
