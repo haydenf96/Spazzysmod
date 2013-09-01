@@ -8,8 +8,8 @@ import spazzysmod.api.planets.PlanetAPI;
 import spazzysmod.blocks.SpazzysBlocks;
 import spazzysmod.client.gui.GuiPlanets;
 import spazzysmod.client.gui.GuiUniverse;
+import spazzysmod.client.gui.inventory.GuiRocketCrafting;
 import spazzysmod.creativetab.SpazzysTabs;
-import spazzysmod.entity.SpazzysEntitys;
 import spazzysmod.item.SpazzysItems;
 import spazzysmod.tick.PlayerTickHandler;
 import spazzysmod.world.SpazzysDimensions;
@@ -23,6 +23,8 @@ public class CommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
+		if ( ID == GuiRocketCrafting.GUI_ID )
+			return new GuiRocketCrafting ( player.inventory, world, x, y, z );
 		return null;
 	}
 

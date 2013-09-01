@@ -1,5 +1,6 @@
 package spazzysmod.client.gui.inventory;
 
+import spazzysmod.blocks.SpazzysBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -89,7 +90,7 @@ public class ContainerRocketWorkbench extends Container
 
     public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
-        return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != Block.workbench.blockID ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
+        return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != SpazzysBlocks.rocketWorkbench.blockID ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
     }
 
     /**

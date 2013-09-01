@@ -35,6 +35,7 @@ public class SpazzysBlocks {
 
 		rocketWorkbench = new BlockRocketWorkbench ( SpazzysConfig.rocketWorkbenchID ).setUnlocalizedName( "rocketWorkbench" ).func_111022_d( "spazzysmod:workbench" );
 		GameRegistry.registerBlock ( rocketWorkbench, "RocketWorkbench" );
+		LanguageRegistry.addName( rocketWorkbench, "Rocket Workbench Alpha" );
 		
 
 		MoonBlocks.initBlocks();

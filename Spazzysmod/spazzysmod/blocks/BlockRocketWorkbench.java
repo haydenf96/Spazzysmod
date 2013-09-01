@@ -60,7 +60,7 @@ public class BlockRocketWorkbench extends Block
         }
         else
         {
-            par5EntityPlayer.openGui ( SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID, par1World, par3, par3, par4);
+            SpazzysmodBase.displayGUI ( new GuiRocketCrafting ( par5EntityPlayer.inventory, par1World, par2, par3, par4 ) );
             return true;
         }
     }
