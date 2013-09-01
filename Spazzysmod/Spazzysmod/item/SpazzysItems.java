@@ -5,6 +5,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
+import spazzysmod.SpazzysmodBase;
 import spazzysmod.config.SpazzysConfig;
 import spazzysmod.creativetab.SpazzysTabs;
 import spazzysmod.item.armor.ItemSpacesuit;
@@ -82,7 +83,7 @@ public class SpazzysItems {
 
 		explosiveArrow = new Item(SpazzysConfig.explosiveArrowID)
 		.setUnlocalizedName("explosiveArrow").setCreativeTab(
-				SpazzysTabs.tabSolarSystem);
+				SpazzysTabs.tabSolarSystem).func_111206_d( SpazzysmodBase.modid + ":explosiveArrow" );
 		LanguageRegistry.addName(explosiveArrow, "Explosive Arrow");
 		GameRegistry.registerItem(explosiveArrow, "Explosive Arrow");
 

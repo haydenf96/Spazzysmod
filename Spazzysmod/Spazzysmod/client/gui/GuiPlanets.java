@@ -1,6 +1,5 @@
 package spazzysmod.client.gui;
 
-import intergalacticTravelMod.item.IntergalacticTravelModItems;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.item.EntityItem;
@@ -9,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import spazzysmod.SpazzysmodBase;
 import spazzysmod.item.SpazzysItems;
+import spazzysmod.planets.SpazzysPlanets;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -27,6 +27,7 @@ public class GuiPlanets extends GuiScreen
 		player = (EntityPlayerMP) par1EntityPlayer;
 	}
 
+	private GuiButton overworld, moon, mars;
 
 	/**
 	 * Adds the buttons (and other controls) to the screen in question.
@@ -34,7 +35,6 @@ public class GuiPlanets extends GuiScreen
 	public void initGui()
 	{
 		this.buttonList.clear();
-<<<<<<< HEAD:Spazzysmod/Spazzysmod/client/gui/GuiPlanets.java
 		this.buttonList.add(overworld = new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, "Overworld"));
 		this.buttonList.add(moon = new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, SpazzysPlanets.MOON.getPlanetName()));
 		this.buttonList.add(mars = new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, SpazzysPlanets.MARS.getPlanetName()));
@@ -45,12 +45,6 @@ public class GuiPlanets extends GuiScreen
 			moon.enabled = false;
 		else if ( player.dimension == SpazzysPlanets.MARS.getPlanetDimensionID() )
 			mars.enabled = false;
-=======
-		this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 24 + b0, "Overworld"));
-		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 44 + b0, "Moon"));
-		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 4 + 64 + b0, "Mars"));
-		this.screenTitle = "Select a planet";
->>>>>>> f700c62ede898cb1527ed31d5e89d9dfba9a6caf:spazzysmod/client/gui/GuiPlanets.java
 	}
 
 	/**
@@ -74,7 +68,7 @@ public class GuiPlanets extends GuiScreen
 			}
 			else
 			{
-				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
 				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
 				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
@@ -86,7 +80,7 @@ public class GuiPlanets extends GuiScreen
 			if(thePlayer.dimension != 10)
 			{
 				SpazzysmodBase.travelToDimension(10, thePlayer);
-				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
 				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
 				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
@@ -94,7 +88,7 @@ public class GuiPlanets extends GuiScreen
 			else
 			{
 				this.mc.displayGuiScreen((GuiScreen)null);
-				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
 				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
 				entityitem.delayBeforeCanPickup = 0;
 			}
@@ -106,7 +100,7 @@ public class GuiPlanets extends GuiScreen
 			if(thePlayer.dimension != 12)
 			{
 				SpazzysmodBase.travelToDimension(12, thePlayer);
-				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
 				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
 				entityitem.delayBeforeCanPickup = 0;
 				this.mc.displayGuiScreen((GuiScreen)null);
@@ -114,7 +108,7 @@ public class GuiPlanets extends GuiScreen
 			else
 			{
 				this.mc.displayGuiScreen((GuiScreen)null);
-				ItemStack itemstack = new ItemStack(IntergalacticTravelModItems.rocket, 1, 0);
+				ItemStack itemstack = new ItemStack(SpazzysItems.spaceship, 1, 0);
 				EntityItem entityitem = thePlayer.dropPlayerItem(itemstack);
 				entityitem.delayBeforeCanPickup = 0;
 			}

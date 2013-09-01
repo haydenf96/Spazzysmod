@@ -1,4 +1,5 @@
 package spazzysmod.tick;
+
 import java.util.EnumSet;
 
 import net.minecraft.client.Minecraft;
