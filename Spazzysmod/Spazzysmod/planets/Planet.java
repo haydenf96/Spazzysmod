@@ -1,7 +1,5 @@
 package spazzysmod.planets;
 
-import net.minecraft.world.WorldProvider;
-
 public class Planet {
 
 	/**
@@ -26,12 +24,16 @@ public class Planet {
 
 	/**
 	 * 
-	 * @param par1Str - The name of the planet
-	 * @param par2 - xCoord on map
-	 * @param par3 - yCoord on map
+	 * @param par1Str
+	 *            - The name of the planet
+	 * @param par2
+	 *            - xCoord on map
+	 * @param par3
+	 *            - yCoord on map
 	 */
-	// TODO - Need to make an achievement system to unlock planets, then add the achievement needed to unlock the planet...
-	public Planet ( String par1Str, int par2, int par3, int par4, int par5 ) {
+	// TODO - Need to make an achievement system to unlock planets, then add the
+	// achievement needed to unlock the planet...
+	public Planet(String par1Str, int par2, int par3, int par4, int par5) {
 		this.planetName = par1Str;
 		this.planetID = par2;
 		this.xCoord = par3;
@@ -39,23 +41,23 @@ public class Planet {
 		this.planetDimensionID = par5;
 	}
 
-	public String getPlanetName () {
+	public String getPlanetName() {
 		return this.planetName;
 	}
 
-	public int getPlanetID () {
+	public int getPlanetID() {
 		return this.planetID;
 	}
 
-	public int getXCoord () {
+	public int getXCoord() {
 		return this.xCoord;
 	}
 
-	public int getYCoord () {
+	public int getYCoord() {
 		return this.yCoord;
 	}
-	
-	public int getPlanetDimensionID () {
+
+	public int getPlanetDimensionID() {
 		return this.planetDimensionID;
 	}
 }

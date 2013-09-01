@@ -7,17 +7,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TabSolarSystem extends CreativeTabs {
 
-    public TabSolarSystem(String s) {
-        super(s);
-    }
+	public TabSolarSystem(String s) {
+		super(s);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    /**
-     * the itemID for the item to be displayed on the tab
-     */
-    public int getTabIconItemIndex() {
-        return SpazzysBlocks.titaniumBlock.blockID;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	/**
+	 * the itemID for the item to be displayed on the tab
+	 */
+	public int getTabIconItemIndex() {
+		return SpazzysBlocks.titaniumBlock.blockID;
+	}
 
 }

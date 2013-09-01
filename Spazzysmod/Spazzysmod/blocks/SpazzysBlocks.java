@@ -10,27 +10,32 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class SpazzysBlocks {
 
 	public static Block titaniumBlock;
-	public static Block rocketBlock;
 	public static Block launchPad;
 
+	public static Block rocketBlock;
+	public static Block rocketWorkbench;
+
 	@SuppressWarnings("deprecation")
-	public static void initBlocks()
-	{
+	public static void initBlocks() {
 		titaniumBlock = new BlockTitaniumBlock(SpazzysConfig.titaniumBlockID,
 				Material.rock).setUnlocalizedName("titaniumBlock");
-		GameRegistry.registerBlock(titaniumBlock);
+		GameRegistry.registerBlock(titaniumBlock, "TitaniumBlock" );
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
 		GameRegistry.registerWorldGenerator(new TitaniumWorldGenerator());
 
-		rocketBlock= new BlockRocketEngine(SpazzysConfig.rocketID,
-				Material.iron).setUnlocalizedName("moonRocket");
-		GameRegistry.registerBlock(rocketBlock);
-		LanguageRegistry.addName(rocketBlock, "Rocket Engine");
-		
-		launchPad= new BlockLaunchPad(SpazzysConfig.launchPadID,
-				Material.iron).setUnlocalizedName("launchPad");
-		GameRegistry.registerBlock(launchPad);
+		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron)
+				.setUnlocalizedName("launchPad");
+		GameRegistry.registerBlock(launchPad, "LunchPad");
 		LanguageRegistry.addName(launchPad, "Launch Pad");
+
+		rocketBlock = new BlockRocketEngine(SpazzysConfig.rocketEngineID,
+				Material.iron).setUnlocalizedName("moonRocket");
+		GameRegistry.registerBlock(rocketBlock, "RocketBlock" );
+		LanguageRegistry.addName(rocketBlock, "Rocket Engine");
+
+		rocketWorkbench = new BlockRocketWorkbench ( SpazzysConfig.rocketWorkbenchID ).setUnlocalizedName( "rocketWorkbench" ).func_111022_d( "spazzysmod:workbench" );
+		GameRegistry.registerBlock ( rocketWorkbench, "RocketWorkbench" );
+		
 
 		MoonBlocks.initBlocks();
 		MarsBlocks.initBlocks();

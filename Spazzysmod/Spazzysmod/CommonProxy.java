@@ -9,7 +9,6 @@ import spazzysmod.blocks.SpazzysBlocks;
 import spazzysmod.client.gui.GuiPlanets;
 import spazzysmod.client.gui.GuiUniverse;
 import spazzysmod.creativetab.SpazzysTabs;
-import spazzysmod.entity.SpazzysEntitys;
 import spazzysmod.item.SpazzysItems;
 import spazzysmod.tick.PlayerTickHandler;
 import spazzysmod.world.SpazzysDimensions;
@@ -22,40 +21,48 @@ import cpw.mods.fml.relauncher.Side;
 public class CommonProxy implements IGuiHandler {
 
 	@Override
-	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
 		return null;
 	}
 
 	@Override
-	public Object getClientGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
-		if ( ID == GuiPlanets.GUI_ID )
-			return new GuiPlanets ( player );
-		else if ( ID == GuiUniverse.GUI_ID )
-			return new GuiUniverse ( player );
-		
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
+		if (ID == GuiPlanets.GUI_ID)
+			return new GuiPlanets(player);
+		else if (ID == GuiUniverse.GUI_ID)
+			return new GuiUniverse(player);
+
 		return null;
 	}
-	
-	public void initProxy () {
-		NetworkRegistry.instance ().registerGuiHandler ( SpazzysmodBase.instance, this );
-		
-		SpazzysBlocks.initBlocks ();
 
-		SpazzysItems.initItems ();
+	public void initProxy() {
+		NetworkRegistry.instance().registerGuiHandler(SpazzysmodBase.instance,
+				this);
 
-		SpazzysTabs.nameTabs ();
+		SpazzysBlocks.initBlocks();
 
-		SpazzysDimensions.registerDimensions ();
+		SpazzysItems.initItems();
 
-		PlanetAPI.populateUniverse ();
-		
-		TickRegistry.registerTickHandler ( new PlayerTickHandler ( EnumSet.of ( TickType.PLAYER ) ), Side.SERVER );
-		
-		this.registerEntities ();
-		this.registerTickHandlers ();
+		SpazzysTabs.nameTabs();
+
+		SpazzysDimensions.registerDimensions();
+
+		PlanetAPI.populateUniverse();
+
+		TickRegistry
+				.registerTickHandler(
+						new PlayerTickHandler(EnumSet.of(TickType.PLAYER)),
+						Side.SERVER);
+
+		this.registerEntities();
+		this.registerTickHandlers();
 	}
-	
-	public void registerEntities () {}
-	
-	public void registerTickHandlers () {}
+
+	public void registerEntities() {
+	}
+
+	public void registerTickHandlers() {
+	}
 }

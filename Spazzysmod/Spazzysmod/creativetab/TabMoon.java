@@ -7,17 +7,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TabMoon extends CreativeTabs {
 
-    public TabMoon(String s) {
-        super(s);
-    }
+	public TabMoon(String s) {
+		super(s);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    /**
-     * the itemID for the item to be displayed on the tab
-     */
-    public int getTabIconItemIndex() {
-        return MoonBlocks.moonStone.blockID;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	/**
+	 * the itemID for the item to be displayed on the tab
+	 */
+	public int getTabIconItemIndex() {
+		return MoonBlocks.moonStone.blockID;
+	}
 
 }

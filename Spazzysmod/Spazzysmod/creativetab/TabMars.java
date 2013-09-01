@@ -7,17 +7,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TabMars extends CreativeTabs {
 
-    public TabMars(String s) {
-        super(s);
-    }
+	public TabMars(String s) {
+		super(s);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    /**
-     * the itemID for the item to be displayed on the tab
-     */
-    public int getTabIconItemIndex() {
-        return MarsBlocks.marsRock.blockID;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	/**
+	 * the itemID for the item to be displayed on the tab
+	 */
+	public int getTabIconItemIndex() {
+		return MarsBlocks.marsRock.blockID;
+	}
 
 }
