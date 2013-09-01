@@ -16,8 +16,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderExplosiveArrow extends Render
 {
-	   private static final ResourceLocation field_110780_a = new ResourceLocation("spazzysmod:textures/entity/arrow.png");
-    public void renderGlassArrow(EntityExplosiveArrow par1EntityGlassArrow, double par2, double par4, double par6, float par8, float par9)
+	   private static final ResourceLocation field_110780_a = new ResourceLocation("spazzysmod:textures/items/explosiveArrow.png");
+    public void RenderExplosiveArrow(EntityExplosiveArrow par1EntityGlassArrow, double par2, double par4, double par6, float par8, float par9)
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
@@ -79,7 +79,7 @@ public class RenderExplosiveArrow extends Render
 
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
-        this.renderGlassArrow((EntityExplosiveArrow)par1Entity, par2, par4, par6, par8, par9);
+        this.RenderExplosiveArrow((EntityExplosiveArrow)par1Entity, par2, par4, par6, par8, par9);
     }
 
     public RenderExplosiveArrow(EntityExplosiveArrow par1Entity, double par2,
