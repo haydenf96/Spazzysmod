@@ -103,7 +103,7 @@ public class BlockRocketEngine extends Block
 			{
 				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
 				{
-					SpazzysmodBase.displayGUI ( GuiPlanets.GUI_ID );
+					SpazzysmodBase.displayGUI ( new GuiPlanets( par5EntityPlayer ) );
 					par1World.setBlockToAir(x, y, z);
 					par1World.setBlockToAir(x, y + 1, z);
 					par1World.setBlockToAir(x, y + 2, z);
