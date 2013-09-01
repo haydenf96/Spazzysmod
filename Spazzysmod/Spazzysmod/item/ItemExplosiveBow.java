@@ -18,89 +18,90 @@ public class ItemExplosiveBow extends ItemBow {
 	public ItemExplosiveBow(int par1) {
 		super(par1);
 	}
-	
+
 	@Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) 
-{
-        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:explosivebow");
-    }
-    public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
-    {
-        int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister) 
+	{
+		this.itemIcon = par1IconRegister.registerIcon("spazzysmod:explosivebow");
+	}
 
-        ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return;
-        }
-        j = event.charge;
+	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
+	{
+		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 
-        boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
+		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled())
+		{
+			return;
+		}
+		j = event.charge;
 
-        if (flag || par3EntityPlayer.inventory.hasItem(SpazzysItems.explosiveArrow.itemID))
-        {
-            float f = (float)j / 20.0F;
-            f = (f * f + f * 2.0F) / 3.0F;
+		boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-            if ((double)f < 0.1D)
-            {
-                return;
-            }
+		if (flag || par3EntityPlayer.inventory.hasItem(SpazzysItems.explosiveArrow.itemID))
+		{
+			float f = (float)j / 20.0F;
+			f = (f * f + f * 2.0F) / 3.0F;
 
-            if (f > 1.0F)
-            {
-                f = 1.0F;
-            }
+			if ((double)f < 0.1D)
+			{
+				return;
+			}
 
-            EntityExplosiveArrow explosiveArrow = new EntityExplosiveArrow(par2World, par3EntityPlayer, f * 2.0F);
+			if (f > 1.0F)
+			{
+				f = 1.0F;
+			}
 
-            if (f == 1.0F)
-            {
-                explosiveArrow.setIsCritical(true);
-            }
+			EntityExplosiveArrow explosiveArrow = new EntityExplosiveArrow(par2World, par3EntityPlayer, f * 2.0F);
 
-            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+			if (f == 1.0F)
+			{
+				explosiveArrow.setIsCritical(true);
+			}
 
-            if (k > 0)
-            {
-                explosiveArrow.setDamage(explosiveArrow.getDamage() + (double)k * 0.5D + 0.5D);
-            }
+			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
 
-            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+			if (k > 0)
+			{
+				explosiveArrow.setDamage(explosiveArrow.getDamage() + (double)k * 0.5D + 0.5D);
+			}
 
-            if (l > 0)
-            {
-                explosiveArrow.setKnockbackStrength(l);
-            }
+			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
 
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
-            {
-                explosiveArrow.setFire(100);
-            }
+			if (l > 0)
+			{
+				explosiveArrow.setKnockbackStrength(l);
+			}
 
-            par1ItemStack.damageItem(1, par3EntityPlayer);
-            par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
+			{
+				explosiveArrow.setFire(100);
+			}
 
-            if (flag)
-            {
-                explosiveArrow.canBePickedUp = 2;
-            }
-            else
-            {
-                par3EntityPlayer.inventory.consumeInventoryItem(SpazzysItems.explosiveArrow.itemID);
-            }
+			par1ItemStack.damageItem(1, par3EntityPlayer);
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-            if (!par2World.isRemote)
-            {
-                par2World.spawnEntityInWorld(explosiveArrow);
-            }
-        }
-    }
+			if (flag)
+			{
+				explosiveArrow.canBePickedUp = 2;
+			}
+			else
+			{
+				par3EntityPlayer.inventory.consumeInventoryItem(SpazzysItems.explosiveArrow.itemID);
+			}
 
-    public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
+			if (!par2World.isRemote)
+			{
+				par2World.spawnEntityInWorld(explosiveArrow);
+			}
+		}
+	}
+
+	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		return par1ItemStack;
+	}
 }

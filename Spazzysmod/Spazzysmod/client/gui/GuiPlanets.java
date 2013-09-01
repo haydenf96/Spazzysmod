@@ -12,8 +12,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiPlanets extends GuiScreen
 {
+	public static final int GUI_ID = 100;
+	
 	private final EntityPlayerMP player;
-	protected String screenTitle = "Select a planet";
 	byte b0 = -16;
 
 	public GuiPlanets(EntityPlayer par1EntityPlayer)
@@ -39,8 +40,6 @@ public class GuiPlanets extends GuiScreen
 			moon.enabled = false;
 		else if ( player.dimension == SpazzysPlanets.MARS.getPlanetDimensionID() )
 			mars.enabled = false;
-		
-		this.screenTitle = "Select a planet";
 	}
 
 	/**
