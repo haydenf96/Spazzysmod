@@ -74,7 +74,7 @@ public class EntityGopher extends EntityTameable
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
         this.targetTasks.addTask(4, new EntityAITargetNonTamed(this, EntityEnderman.class, 200, false));
         this.targetTasks.addTask(5, new EntityAIFollowParent(this, 0.25F));
-        this.setAIMoveSpeed(1F);
+        this.setAIMoveSpeed(0.4F);
     }
 
     @Override

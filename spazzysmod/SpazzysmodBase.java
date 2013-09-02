@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.common.Configuration;
 import spazzysmod.config.SpazzysConfig;
+import spazzysmod.entity.passive.EntityGopher;
 import spazzysmod.world.TeleporterSpazzys;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -13,6 +14,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = SpazzysmodBase.modid, name = "Spazzy's Mod", version = "V 0.4")
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
@@ -39,7 +41,8 @@ public class SpazzysmodBase {
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event)
+	{
 		proxy.initProxy();
 	}
 	

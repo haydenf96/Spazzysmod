@@ -10,6 +10,7 @@ import spazzysmod.client.gui.GuiPlanets;
 import spazzysmod.client.gui.GuiUniverse;
 import spazzysmod.client.gui.inventory.GuiRocketCrafting;
 import spazzysmod.creativetab.SpazzysTabs;
+import spazzysmod.entity.SpazzysEntitys;
 import spazzysmod.item.SpazzysItems;
 import spazzysmod.tick.PlayerTickHandler;
 import spazzysmod.world.SpazzysDimensions;
@@ -46,6 +47,10 @@ public class CommonProxy implements IGuiHandler {
 		SpazzysItems.initItems ();
 
 		SpazzysTabs.nameTabs ();
+		
+		SpazzysEntitys.registerEntities();
+		
+		SpazzysEntitys.registerEntitySpawns();
 
 		SpazzysDimensions.registerDimensions ();
 
