@@ -85,13 +85,13 @@ public class SpazzysConfig {
 				"Titanium Boots ID", 5005).getInt();
 
 		spaceHelmetID = config.get(Configuration.CATEGORY_ITEM,
-				"Titanium Helmet ID", 5012).getInt();
+				"Space Helmet ID", 5012).getInt();
 		spaceJacketID = config.get(Configuration.CATEGORY_ITEM,
-				"Titanium Chestplate ID", 5013).getInt();
+				"Space Jacket ID", 5013).getInt();
 		spacePantsID = config.get(Configuration.CATEGORY_ITEM,
-				"Titanium Leggings ID", 5014).getInt();
+				"Space Pants ID", 5014).getInt();
 		spaceShoesID = config.get(Configuration.CATEGORY_ITEM,
-				"Titanium Boots ID", 5015).getInt();
+				"Space Boots ID", 5015).getInt();
 
 		config.save();
 	}
