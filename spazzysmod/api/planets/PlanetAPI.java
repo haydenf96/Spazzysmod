@@ -15,7 +15,8 @@ public class PlanetAPI {
 
 	private static List<Planet> planetList = new ArrayList<Planet>();
 
-	public static void populateUniverse () {
+	public static void populateUniverse() 
+	{
 		System.out.println( "[Spazzy Planets API] Populating the Universe..." );
 
 		PlanetAPI.registerPlanet ( SpazzysPlanets.MOON );

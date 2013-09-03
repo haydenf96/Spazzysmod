@@ -5,6 +5,6 @@ import spazzysmod.world.SpazzysDimensions;
 public class PlanetMars extends Planet {
 
 	public PlanetMars() {
-		super( "Mars", 1, -20, -50, SpazzysDimensions.marsDimensionID );
+		super( "Mars", 1, -20, -50, SpazzysDimensions.marsDimensionID, 1);
 	}
 }

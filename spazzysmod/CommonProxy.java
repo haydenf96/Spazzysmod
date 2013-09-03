@@ -4,6 +4,7 @@ import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import spazzysmod.api.galaxies.GalaxyAPI;
 import spazzysmod.api.planets.PlanetAPI;
 import spazzysmod.blocks.SpazzysBlocks;
 import spazzysmod.client.gui.GuiPlanets;
@@ -55,6 +56,7 @@ public class CommonProxy implements IGuiHandler {
 		SpazzysDimensions.registerDimensions ();
 
 		PlanetAPI.populateUniverse ();
+		GalaxyAPI.addSpazzyGalaxies();
 		
 		TickRegistry.registerTickHandler ( new PlayerTickHandler ( EnumSet.of ( TickType.PLAYER ) ), Side.SERVER );
 		

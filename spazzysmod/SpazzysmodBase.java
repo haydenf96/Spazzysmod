@@ -20,7 +20,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
 public class SpazzysmodBase {
 
-	public static final String modid = "spazzysmod";
+	public static final String modid = "Spazzy_Spazzysmod";
 	
 	@Instance ( SpazzysmodBase.modid )
 	public static SpazzysmodBase instance;
@@ -29,7 +29,8 @@ public class SpazzysmodBase {
 	public static CommonProxy proxy;
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 		SpazzysConfig.initConfig(new Configuration(event.getSuggestedConfigurationFile()));
 	}
 	

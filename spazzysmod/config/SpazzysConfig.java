@@ -34,7 +34,8 @@ public class SpazzysConfig {
 
 	private static Configuration config;
 
-	public static void initConfig(Configuration configuration) {
+	public static void initConfig(Configuration configuration) 
+	{
 		config = configuration;
 		config.load();
 
@@ -60,7 +61,7 @@ public class SpazzysConfig {
 		
 		rocketWorkbenchID = config.get ( Configuration.CATEGORY_BLOCK, "Workbench ID", 2345 ).getInt ();
 
-		// items
+		//Items
 		titaniumIngotID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Ingot ID", 5000).getInt();
 		titaniumSwordID = config.get(Configuration.CATEGORY_ITEM,
@@ -74,7 +75,7 @@ public class SpazzysConfig {
 				"Spaceship ID", 5008).getInt();
 
 		
-		// armor
+		//Armor
 		titaniumHelmetID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Helmet ID", 5002).getInt();
 		titaniumChestplateID = config.get(Configuration.CATEGORY_ITEM,
