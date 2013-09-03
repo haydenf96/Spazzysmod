@@ -5,14 +5,13 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import spazzysmod.SpazzysmodBase;
-import spazzysmod.client.gui.GuiPlanets;
+import spazzysmod.client.gui.GuiUniverse;
 import spazzysmod.creativetab.SpazzysTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -93,35 +92,37 @@ public class BlockRocketEngine extends Block
 	{
 		if (par1World.getBlockId(x, y + 1, z) == Block.blockIron.blockID && par1World.getBlockId(x, y + 2, z) == Block.glass.blockID && par1World.getBlockId(x, y + 3, z) == Block.blockIron.blockID && par1World.getBlockId(x + 1, y, z) == Block.fence.blockID && par1World.getBlockId(x, y, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y, z) == Block.fence.blockID && par1World.getBlockId(x, y, z - 1) == Block.fence.blockID && par1World.getBlockId(x + 1, y - 1, z) == Block.fence.blockID && par1World.getBlockId(x, y - 1, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y - 1, z) == Block.fence.blockID && par1World.getBlockId(x, y - 1, z - 1) == Block.fence.blockID)
 		{	
-		
+			//		
+			//
+			//			if(par5EntityPlayer.dimension == -1)
+			//			{
+			//				par5EntityPlayer.addChatMessage("Can't lift off from the Nether!");
+			//			}
+			//			else
+			//			{
+			//				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
+			//				{
+			//					SpazzysmodBase.displayGUI ( new GuiPlanets( par5EntityPlayer ) );
+			//					par1World.setBlockToAir(x, y, z);
+			//					par1World.setBlockToAir(x, y + 1, z);
+			//					par1World.setBlockToAir(x, y + 2, z);
+			//					par1World.setBlockToAir(x, y + 3, z);
+			//					par1World.setBlockToAir(x, y, z + 1);
+			//					par1World.setBlockToAir(x + 1, y, z);
+			//					par1World.setBlockToAir(x, y, z - 1);
+			//					par1World.setBlockToAir(x - 1, y, z);
+			//					par1World.setBlockToAir(x, y - 1, z + 1);
+			//					par1World.setBlockToAir(x + 1, y - 1, z);
+			//					par1World.setBlockToAir(x, y - 1, z - 1);
+			//					par1World.setBlockToAir(x - 1, y - 1, z);
+			//					
+			//				}
+			//			}
 
-			if(par5EntityPlayer.dimension == -1)
-			{
-				par5EntityPlayer.addChatMessage("Can't lift off from the Nether!");
-			}
-			else
-			{
-				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
-				{
-					SpazzysmodBase.displayGUI ( new GuiPlanets( par5EntityPlayer ) );
-					par1World.setBlockToAir(x, y, z);
-					par1World.setBlockToAir(x, y + 1, z);
-					par1World.setBlockToAir(x, y + 2, z);
-					par1World.setBlockToAir(x, y + 3, z);
-					par1World.setBlockToAir(x, y, z + 1);
-					par1World.setBlockToAir(x + 1, y, z);
-					par1World.setBlockToAir(x, y, z - 1);
-					par1World.setBlockToAir(x - 1, y, z);
-					par1World.setBlockToAir(x, y - 1, z + 1);
-					par1World.setBlockToAir(x + 1, y - 1, z);
-					par1World.setBlockToAir(x, y - 1, z - 1);
-					par1World.setBlockToAir(x - 1, y - 1, z);
-					
-				}
-			}
-
+			SpazzysmodBase.displayGUI ( GuiUniverse.GUI_ID );
 
 		}
+
 		return true;
 	}
 

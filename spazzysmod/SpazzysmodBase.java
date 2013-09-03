@@ -20,7 +20,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
 public class SpazzysmodBase {
 
-	public static final String modid = "Spazzy_Spazzysmod";
+	public static final String modid = "spazzysmod";
 	
 	@Instance ( SpazzysmodBase.modid )
 	public static SpazzysmodBase instance;
