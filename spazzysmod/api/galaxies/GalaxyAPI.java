@@ -23,8 +23,9 @@ public class GalaxyAPI {
 	}
 
 
-	public static void registerGalaxy ( Galaxy galaxy ) {
-		galaxyList.add ( galaxy.getGalaxyID(), galaxy );
+	public static void registerGalaxy ( Galaxy galaxy ) 
+	{
+		galaxyList.add(galaxy.getGalaxyID(), galaxy );
 	}
 
 	public static Galaxy getGalaxy ( int galaxyID ) {

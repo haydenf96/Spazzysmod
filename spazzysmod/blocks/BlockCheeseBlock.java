@@ -11,7 +11,7 @@ public class BlockCheeseBlock extends Block {
 
     public BlockCheeseBlock(int id, Material par2Material) {
         super(id, par2Material);
-        this.setCreativeTab(SpazzysTabs.tabMoon).setHardness(1.0F).setResistance(1.0F);
+        this.setCreativeTab(SpazzysTabs.tabMoon).setHardness(0.5F).setResistance(0.5F);
     }
 
     @Override

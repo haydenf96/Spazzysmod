@@ -12,6 +12,8 @@ public class BlockMarsRock extends Block {
     public BlockMarsRock(int id, Material par2Material) {
         super(id, par2Material);
         this.setCreativeTab(SpazzysTabs.tabMars);
+        this.setHardness(1F);
+        this.setResistance(1F);
 
     }
 

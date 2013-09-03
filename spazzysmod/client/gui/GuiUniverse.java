@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import spazzysmod.SpazzysResources;
 import spazzysmod.api.planets.PlanetAPI;
+import spazzysmod.client.gui.api.GuiNewList;
 import spazzysmod.planets.Planet;
 
 public class GuiUniverse extends GuiScreen {
@@ -20,17 +21,19 @@ public class GuiUniverse extends GuiScreen {
 	}
 	
 	@Override
-	public void drawScreen ( int x, int y, float idk ) {
-		this.drawDefaultBackground ();
+	public void drawScreen ( int x, int y, float idk )
+	{
+		this.drawDefaultBackground();
 		
 		// TODO - all the rendering etc. for the map
 
-		this.mc.renderEngine.func_110577_a ( SpazzysResources.GUI_UNIVERSE );
+		this.mc.renderEngine.func_110577_a (SpazzysResources.GUI_UNIVERSE );
 		RenderHelper.drawTexturedQuadFit ( 0, 0, width, height, this.zLevel );
 	}
 	
 	@Override
-	public void initGui () {
+	public void initGui ()
+	{
 		newList = new GuiNewList<String>(125, this.width/2-200, this.height/2-50, 200, 100);
 	}
 }

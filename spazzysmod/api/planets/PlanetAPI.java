@@ -26,8 +26,9 @@ public class PlanetAPI {
 	}
 
 
-	public static void registerPlanet ( Planet planet ) {
-		planetList.add ( planet.getPlanetID(), planet );
+	public static void registerPlanet ( Planet planet )
+	{
+		planetList.add (planet.getPlanetID(), planet );
 	}
 
 	public static Planet getPlanet ( int planetID ) {
@@ -50,6 +51,7 @@ public class PlanetAPI {
 		return planetList;
 	}
 	
+
 	public static void travelToDimension ( Planet planet, EntityPlayerMP player) {
 		player.mcServer.getConfigurationManager ().transferPlayerToDimension ( player, planet.getPlanetDimensionID(),
 				new TeleporterSpazzys ( player.mcServer.worldServerForDimension ( planet.getPlanetDimensionID() ) ) );

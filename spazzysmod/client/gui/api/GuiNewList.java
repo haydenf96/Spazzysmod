@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.input.Mouse;
 
 import spazzysmod.client.gui.RenderHelper;
 
-public class GuiNewList<T> extends GuiButton {
+public class GuiNewList<T> extends GuiButton 
+{  
 	private boolean dragging;
 	private float slider;
 	private ArrayList<T> itemList;
@@ -38,11 +40,11 @@ public class GuiNewList<T> extends GuiButton {
 			this.mouseDragged(mc, x, y);
 		}
 
-		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.blankTexture);
+	//	mc.renderEngine.func_110577_a(ForgeRevCommonProxy.blankTexture);
 		RenderHelper.drawTexturedQuadFit(xPosition + 3, yPosition + 3,
 				width - 6, height - 6, zLevel, 139, 139, 139, 255);
 
-		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
+	//	mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
 
 		int startingItem = (int) (slider * (itemList.size() - 6));
 		int numItemToRender = 6;
@@ -52,10 +54,9 @@ public class GuiNewList<T> extends GuiButton {
 		}
 		for (int i = startingItem; i < numItemToRender + startingItem; i++) {
 			if(i != selected){
-			mc.renderEngine
-					.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
+	//		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
 			}else{
-				mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemSelected);
+		//		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemSelected);
 			}
 			RenderHelper.drawTexturedQuadFit(xPosition + buttonWS, yPosition
 					+ buttonHeight * (1 + i - slider * (itemList.size() - 6)),
@@ -66,10 +67,10 @@ public class GuiNewList<T> extends GuiButton {
 							* (7 - slider * (itemList.size() - 6))
 							+ buttonHeight < yPosition + width * 136 / 156f) {
 				if(i+1 != selected){
-					mc.renderEngine
-							.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
+		//			mc.renderEngine
+			//				.func_110577_a(ForgeRevCommonProxy.listItemNotSelected);
 					}else{
-						mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemSelected);
+			//			mc.renderEngine.func_110577_a(ForgeRevCommonProxy.listItemSelected);
 					}
 				RenderHelper.drawTexturedQuadFit(
 						xPosition + buttonWS,
@@ -96,11 +97,11 @@ public class GuiNewList<T> extends GuiButton {
 
 		}
 
-		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.guiListForeground);
+	//	mc.renderEngine.func_110577_a(ForgeRevCommonProxy.guiListForeground);
 		RenderHelper.drawTexturedQuadFit(xPosition, yPosition,
 				width, height, zLevel);
 
-		mc.renderEngine.func_110577_a(ForgeRevCommonProxy.slider);
+	//	mc.renderEngine.func_110577_a(ForgeRevCommonProxy.slider);
 		RenderHelper.drawTexturedQuadFit(this.xPosition + width * 31 / 36f,
 				yPosition + height * 5 / 39f + slider * height * 101f
 						/ 156f, width / 18f, height * 5 / 52f, zLevel);

@@ -24,6 +24,8 @@ public class BlockRocketWorkbench extends Block
     {
         super(par1, Material.iron);
         this.setCreativeTab(SpazzysTabs.tabSolarSystem);
+        this.setHardness(1F);
+        this.setResistance(1F);
     }
 
     @SideOnly(Side.CLIENT)

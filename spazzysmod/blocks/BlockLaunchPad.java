@@ -14,7 +14,8 @@ public class BlockLaunchPad extends Block
     {
         super(id, par2Material);
         this.setCreativeTab(SpazzysTabs.tabSolarSystem);
-
+        this.setHardness(1F);
+        this.setResistance(1F);
     }
 
    @Override

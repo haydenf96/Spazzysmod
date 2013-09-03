@@ -12,6 +12,8 @@ public class BlockRedRock extends Block {
     public BlockRedRock(int id, Material par2Material) {
         super(id, par2Material);
         this.setCreativeTab(SpazzysTabs.tabMars);
+        this.setHardness(1F);
+        this.setResistance(1F);
 
     }
 

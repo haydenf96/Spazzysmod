@@ -5,7 +5,7 @@ public class GalaxyMilkyWay extends Galaxy
 
 	public GalaxyMilkyWay()
 	{
-		super("Milky Way", 1);	
+		super("Milky Way", 0);	
 	}
 
 }

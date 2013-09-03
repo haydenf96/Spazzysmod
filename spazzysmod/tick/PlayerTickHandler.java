@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import spazzysmod.api.planets.PlanetAPI;
 import spazzysmod.item.SpazzysItems;
 import spazzysmod.world.SpazzysDimensions;
 import cpw.mods.fml.common.ITickHandler;
@@ -46,24 +47,27 @@ public class PlayerTickHandler implements ITickHandler
 	
 	public static void playerTick(EntityPlayer player)
 	{  		
-		if(player.dimension == SpazzysDimensions.moonDimensionID || player.dimension == SpazzysDimensions.marsDimensionID)
+		for (int i = 0; i < PlanetAPI.getPlanetsList().size(); i++) 
 		{
-			ItemStack currentHelmet = player.getCurrentArmor(3);
-			ItemStack currentJacket = player.getCurrentArmor(2);
-			ItemStack currentPants = player.getCurrentArmor(1);
-			ItemStack currentFeet = player.getCurrentArmor(0);
-			if(currentHelmet != null && currentHelmet.itemID == SpazzysItems.spaceHelmet.itemID &&
-					currentJacket != null && currentJacket.itemID == SpazzysItems.spaceJacket.itemID &&
-							currentPants != null && currentPants.itemID == SpazzysItems.spacePants.itemID &&
-									currentFeet != null && currentFeet.itemID == SpazzysItems.spaceShoes.itemID)
+			if(PlanetAPI.getPlanetsList().get(i).getPlanetDimensionID() == player.dimension)
 			{
-			
-			}
-			else
-			{
-				player.attackEntityFrom(DamageSource.inWall, 2F);
-			}
+				ItemStack currentHelmet = player.getCurrentArmor(3);
+				ItemStack currentJacket = player.getCurrentArmor(2);
+				ItemStack currentPants = player.getCurrentArmor(1);
+				ItemStack currentFeet = player.getCurrentArmor(0);
+				if(currentHelmet != null && currentHelmet.itemID == SpazzysItems.spaceHelmet.itemID &&
+						currentJacket != null && currentJacket.itemID == SpazzysItems.spaceJacket.itemID &&
+								currentPants != null && currentPants.itemID == SpazzysItems.spacePants.itemID &&
+										currentFeet != null && currentFeet.itemID == SpazzysItems.spaceShoes.itemID)
+				{
+				
+				}
+				else
+				{
+					player.attackEntityFrom(DamageSource.inWall, 2F);
+				}
 
+			}
 		}
 
 	}

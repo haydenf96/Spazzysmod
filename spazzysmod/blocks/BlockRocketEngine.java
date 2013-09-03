@@ -31,6 +31,8 @@ public class BlockRocketEngine extends Block
 	public BlockRocketEngine(int id, Material par2Material) {
 		super(id, par2Material);
 		this.setCreativeTab(SpazzysTabs.tabSolarSystem);
+	    this.setHardness(1F);
+        this.setResistance(1F);
 	}
 
 	/**
@@ -103,7 +105,7 @@ public class BlockRocketEngine extends Block
 			{
 				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
 				{
-					SpazzysmodBase.displayGUI ( new GuiPlanets( par5EntityPlayer ) );
+					SpazzysmodBase.displayGUI (new GuiPlanets( par5EntityPlayer ) );
 					par1World.setBlockToAir(x, y, z);
 					par1World.setBlockToAir(x, y + 1, z);
 					par1World.setBlockToAir(x, y + 2, z);
