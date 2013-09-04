@@ -13,44 +13,29 @@ import spazzysmod.world.TeleporterSpazzys;
 
 public class PlanetAPI {
 
-	private static List<Planet> planetList = new ArrayList<Planet>();
+	private static List <Planet> planetList = new ArrayList<Planet> ();
 
-	public static void populateUniverse() 
-	{
-		System.out.println( "[Spazzy Planets API] Populating the Universe..." );
+	public static void populateUniverse() {
+		System.out.println ( "[Spazzy Planets API] Populating the Universe..." );
 
 		PlanetAPI.registerPlanet ( SpazzysPlanets.MOON );
 		PlanetAPI.registerPlanet ( SpazzysPlanets.MARS );
 
-		System.out.println( "[Spazzy Planets API] Populated!" );
+		System.out.println ( "[Spazzy Planets API] Populated!" );
 	}
 
 
-	public static void registerPlanet ( Planet planet )
-	{
-		planetList.add (planet.getPlanetID(), planet );
+	public static void registerPlanet ( Planet planet ) {
+		planetList.add ( planet.getPlanetID(), planet );
 	}
 
 	public static Planet getPlanet ( int planetID ) {
-		return planetList.get( planetID );
+		return planetList.get ( planetID );
 	}
 
-	public static String getPlanetName ( int planetID ) {
-		return planetList.get( planetID ).getPlanetName();
-	}
-
-	public static int getPlanetXCoord ( int planetID ) {
-		return planetList.get( planetID ).getXCoord();
-	}
-
-	public static int getPlanetYCoord ( int planetID ) {
-		return planetList.get( planetID ).getYCoord();
-	}
-
-	public static List<Planet> getPlanetsList () {
+	public static List <Planet> getPlanetsList () {
 		return planetList;
 	}
-	
 
 	public static void travelToDimension ( Planet planet, EntityPlayerMP player) {
 		player.mcServer.getConfigurationManager ().transferPlayerToDimension ( player, planet.getPlanetDimensionID(),

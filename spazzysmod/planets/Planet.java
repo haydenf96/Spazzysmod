@@ -13,6 +13,11 @@ public class Planet {
 	 * The ID for this planet
 	 */
 	private int planetID;
+	
+	/**
+	 * The path to the planets texture
+	 */
+	private String planetTexture;
 
 	/**
 	 * The x and y coordinates for the MAP, not actual locations
@@ -23,6 +28,8 @@ public class Planet {
 	 * The dimension ID that corresponds with the planet
 	 */
 	private int planetDimensionID;
+	
+	private int galaxyAttatchedTo;
 
 	/**
 	 * 
@@ -31,12 +38,14 @@ public class Planet {
 	 * @param par3 - yCoord on map
 	 */
 	// TODO - Need to make an achievement system to unlock planets, then add the achievement needed to unlock the planet...
-	public Planet ( String pName, int pID, int x, int y, int pDimensionID ) {
+	public Planet ( String pName, int pID, String par3Str, int x, int y, int pDimensionID, int par7 ) {
 		this.planetName = pName;
 		this.planetID = pID;
+		this.planetTexture = par3Str;
 		this.xCoord = x;
 		this.yCoord = y;
 		this.planetDimensionID = pDimensionID;
+		this.galaxyAttatchedTo = par7;
 	}
 
 	public String getPlanetName () {

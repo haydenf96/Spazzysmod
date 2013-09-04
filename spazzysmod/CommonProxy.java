@@ -3,11 +3,13 @@ package spazzysmod;
 import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import spazzysmod.api.SpazzysAPI;
 import spazzysmod.blocks.SpazzysBlocks;
 import spazzysmod.client.gui.GuiPlanets;
 import spazzysmod.client.gui.GuiUniverse;
+import spazzysmod.client.gui.inventory.ContainerRocketWorkbench;
 import spazzysmod.client.gui.inventory.GuiRocketCrafting;
 import spazzysmod.crafting.ReciperManager;
 import spazzysmod.creativetab.SpazzysTabs;
@@ -25,17 +27,23 @@ public class CommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
+		TileEntity tile_entity = world.getBlockTileEntity ( x, y, z );
+		
 		if ( ID == GuiRocketCrafting.GUI_ID )
-			return new GuiRocketCrafting ( player.inventory, world, x, y, z );
+			return ID == GuiRocketCrafting.GUI_ID && world.getBlockId ( x, y, z ) == SpazzysBlocks.rocketWorkbench.blockID ? new ContainerRocketWorkbench ( player.inventory, world, x, y, z ) : null;
 		return null;
 	}
 
 	@Override
 	public Object getClientGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
+		TileEntity tile_entity = world.getBlockTileEntity ( x, y, z );
+		
 		if ( ID == GuiPlanets.GUI_ID )
 			return new GuiPlanets ( player );
 		else if ( ID == GuiUniverse.GUI_ID )
 			return new GuiUniverse ( player );
+		else if ( ID == GuiRocketCrafting.GUI_ID )
+			return ID == GuiRocketCrafting.GUI_ID && world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new GuiRocketCrafting ( player.inventory, world, x, y, z ) : null;
 		
 		return null;
 	}
