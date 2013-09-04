@@ -4,18 +4,20 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBow;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import spazzysmod.SpazzysmodBase;
 import spazzysmod.entity.projectile.EntityExplosiveArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemExplosiveBow extends ItemBow {
+public class ItemExplosiveBow extends Item {
 
 	public ItemExplosiveBow(int par1) {
 		super(par1);
@@ -62,7 +64,7 @@ public class ItemExplosiveBow extends ItemBow {
 
 		boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-		if (flag || par3EntityPlayer.inventory.hasItem(SpazzysItems.explosiveArrow.itemID))
+		if (flag || par3EntityPlayer.inventory.hasItem ( SpazzysItems.explosiveArrow.itemID ) )
 		{
 			float f = (float)j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
@@ -121,9 +123,45 @@ public class ItemExplosiveBow extends ItemBow {
 			}
 		}
 	}
-
+	
 	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{
-		return par1ItemStack;
-	}
+    {
+        return par1ItemStack;
+    }
+
+    /**
+     * How long it takes to use or consume an item
+     */
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+        return 72000;
+    }
+
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+        return EnumAction.bow;
+    }
+
+    /**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
+    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {
+        ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled())
+        {
+            return event.result;
+        }
+
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(SpazzysItems.explosiveArrow.itemID))
+        {
+            par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+        }
+
+        return par1ItemStack;
+    }
 }
