@@ -49,7 +49,7 @@ public class PlayerTickHandler implements ITickHandler
 	{  		
 		for (int i = 0; i < PlanetAPI.getPlanetsList().size(); i++) 
 		{
-			if(PlanetAPI.getPlanetsList().get(i).getPlanetDimensionID() == player.dimension)
+			if(PlanetAPI.getPlanetsList().get(i).getHasPlanetBreathableOxygen() == false && PlanetAPI.getPlanetsList().get(i).getPlanetDimensionID() == player.dimension)
 			{
 				ItemStack currentHelmet = player.getCurrentArmor(3);
 				ItemStack currentJacket = player.getCurrentArmor(2);
