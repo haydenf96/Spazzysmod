@@ -4,12 +4,12 @@ import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import spazzysmod.api.galaxies.GalaxyAPI;
-import spazzysmod.api.planets.PlanetAPI;
+import spazzysmod.api.SpazzysAPI;
 import spazzysmod.blocks.SpazzysBlocks;
 import spazzysmod.client.gui.GuiPlanets;
 import spazzysmod.client.gui.GuiUniverse;
 import spazzysmod.client.gui.inventory.GuiRocketCrafting;
+import spazzysmod.crafting.ReciperManager;
 import spazzysmod.creativetab.SpazzysTabs;
 import spazzysmod.entity.SpazzysEntitys;
 import spazzysmod.item.SpazzysItems;
@@ -46,7 +46,9 @@ public class CommonProxy implements IGuiHandler {
 		SpazzysBlocks.initBlocks ();
 
 		SpazzysItems.initItems ();
-
+		
+		ReciperManager.craftItems ();
+		
 		SpazzysTabs.nameTabs ();
 		
 		SpazzysEntitys.registerEntities();
@@ -55,8 +57,7 @@ public class CommonProxy implements IGuiHandler {
 
 		SpazzysDimensions.registerDimensions ();
 
-		PlanetAPI.populateUniverse ();
-		GalaxyAPI.addSpazzyGalaxies();
+		SpazzysAPI.populateUniverse ();
 		
 		TickRegistry.registerTickHandler ( new PlayerTickHandler ( EnumSet.of ( TickType.PLAYER ) ), Side.SERVER );
 		

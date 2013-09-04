@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayerMP;
+import spazzysmod.api.planets.PlanetAPI;
 import spazzysmod.galaxies.Galaxy;
 import spazzysmod.galaxies.SpazzysGalaxies;
 import spazzysmod.planets.Planet;
@@ -13,13 +14,15 @@ public class GalaxyAPI {
 
 	private static List<Galaxy> galaxyList = new ArrayList<Galaxy>();
 
-	public static void addSpazzyGalaxies ()
+	public static void populateUniverse ()
 	{
-		System.out.println( "[Spazzys Galaxy API] Populating the Universe..." );
+		System.out.println ( "[Spazzys Galaxy API] Populating the Universe..." );
 
-		GalaxyAPI.registerGalaxy(SpazzysGalaxies.milkyWay);
+		GalaxyAPI.registerGalaxy ( SpazzysGalaxies.milkyWay );
 
-		System.out.println( "[Spazzys Galaxy API] Populated!" );
+		System.out.println ( "[Spazzys Galaxy API] Populated!" );
+		
+		PlanetAPI.populateUniverse ();
 	}
 
 

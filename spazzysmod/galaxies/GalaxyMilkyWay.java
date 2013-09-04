@@ -10,6 +10,6 @@ public class GalaxyMilkyWay extends Galaxy
 {
 	public GalaxyMilkyWay()
 	{
-		super("Milky Way", 0, 0, 0, "MAKE THE PATH!", new Planet [] { SpazzysPlanets.MOON, SpazzysPlanets.MARS } );	
+		super("Milky Way", 0, 0, 0, "MAKE THE PATH!");	
 	}
 }

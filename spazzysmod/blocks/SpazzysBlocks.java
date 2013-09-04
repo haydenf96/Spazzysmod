@@ -23,8 +23,7 @@ public class SpazzysBlocks {
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
 		GameRegistry.registerWorldGenerator(new TitaniumWorldGenerator());
 
-		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron)
-				.setUnlocalizedName("launchPad");
+		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron).setUnlocalizedName("launchPad");
 		GameRegistry.registerBlock(launchPad, "LunchPad");
 		LanguageRegistry.addName(launchPad, "Launch Pad");
 

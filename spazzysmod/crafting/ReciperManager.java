@@ -9,7 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ReciperManager {
 
-    public static void initRecipes() {
+    public static void craftItems () {
         GameRegistry.addRecipe(new ItemStack(MoonBlocks.cheeseBlock),
                 new Object[] { "   ", " X ", "   ", 'X', Item.bucketMilk });
         GameRegistry.addRecipe(new ItemStack(SpazzysItems.titaniumHelmet),

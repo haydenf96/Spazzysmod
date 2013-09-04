@@ -16,13 +16,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = SpazzysmodBase.modid, name = "Spazzy's Mod", version = "V 0.4")
+@Mod(modid = SpazzysmodBase.MODID, name = "Spazzy's Mod", version = "V 0.4")
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
 public class SpazzysmodBase {
 
-	public static final String modid = "spazzysmod";
+	public static final String MODID = "spazzysmod";
 	
-	@Instance ( SpazzysmodBase.modid )
+	@Instance ( SpazzysmodBase.MODID )
 	public static SpazzysmodBase instance;
 
 	@SidedProxy ( clientSide = "spazzysmod.CommonProxy", serverSide = "spazzysmod.client.ClientProxy" )

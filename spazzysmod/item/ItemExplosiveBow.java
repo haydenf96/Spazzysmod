@@ -27,10 +27,10 @@ public class ItemExplosiveBow extends ItemBow {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons ( IconRegister iconreg ) {
-        this.itemIcon = iconreg.registerIcon ( SpazzysmodBase.modid + ":" + this.getUnlocalizedName ().substring ( 5 ) );
+        this.itemIcon = iconreg.registerIcon ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName ().substring ( 5 ) );
 
         for ( int i = 1; i < this.bowIcons.length; i++ )
-            this.bowIcons[i] = iconreg.registerIcon ( SpazzysmodBase.modid + ":" + this.getUnlocalizedName().substring ( 5 ) + "_pull_" + ( i - 1 ) );
+            this.bowIcons[i] = iconreg.registerIcon ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName().substring ( 5 ) + "_pull_" + ( i - 1 ) );
     }
 
     @Override

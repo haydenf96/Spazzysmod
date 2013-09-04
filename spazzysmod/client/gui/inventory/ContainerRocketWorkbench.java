@@ -34,12 +34,11 @@ public class ContainerRocketWorkbench extends Container
         int l;
         int i1;
 
-        // Need to change this so that we can get the right amound of slots...
         for (l = 0; l < 3; ++l)
         {
-            for (i1 = 0; i1 < 3; ++i1)
+            for (i1 = 0; i1 < 4; ++i1)
             {
-                this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
+                this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 20 + i1 * 18, 7 + l * 18));
             }
         }
 

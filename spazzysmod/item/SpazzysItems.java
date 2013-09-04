@@ -20,6 +20,8 @@ public class SpazzysItems {
 	public static Item explosiveArrow;
 	public static Item explosiveBow;
 	public static Item spaceship;
+	
+	public static Item launchPad;
 
 	public static Item titaniumHelmet;
 	public static Item titaniumChestplate;
@@ -83,7 +85,7 @@ public class SpazzysItems {
 
 		explosiveArrow = new Item(SpazzysConfig.explosiveArrowID)
 		.setUnlocalizedName("explosiveArrow").setCreativeTab(
-				SpazzysTabs.tabSolarSystem).func_111206_d( SpazzysmodBase.modid + ":explosiveArrow" );
+				SpazzysTabs.tabSolarSystem).func_111206_d( SpazzysmodBase.MODID + ":explosiveArrow" );
 		LanguageRegistry.addName(explosiveArrow, "Explosive Arrow");
 		GameRegistry.registerItem(explosiveArrow, "Explosive Arrow");
 
@@ -124,5 +126,9 @@ public class SpazzysItems {
 		LanguageRegistry.addName(spaceship, "Spaceship");
 		GameRegistry.registerItem(spaceship, "Spaceship");
 
+		
+		launchPad = new ItemLaunchpad ( SpazzysConfig.launchPadID + 1 ).setUnlocalizedName ( "laucnhPad" );
+		LanguageRegistry.addName ( launchPad, "Launch Pad" );
+		GameRegistry.registerItem ( launchPad, "launchPad" );
 	}
 }
