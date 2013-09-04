@@ -6,9 +6,11 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import spazzysmod.SpazzysmodBase;
 import spazzysmod.entity.projectile.EntityExplosiveArrow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,12 +21,32 @@ public class ItemExplosiveBow extends ItemBow {
 		super(par1);
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) 
-	{
-		this.itemIcon = par1IconRegister.registerIcon("spazzysmod:explosivebow");
-	}
+    private Icon [] bowIcons = new Icon [4];
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons ( IconRegister iconreg ) {
+        this.itemIcon = iconreg.registerIcon ( SpazzysmodBase.modid + ":" + this.getUnlocalizedName ().substring ( 5 ) );
+
+        for ( int i = 1; i < this.bowIcons.length; i++ )
+            this.bowIcons[i] = iconreg.registerIcon ( SpazzysmodBase.modid + ":" + this.getUnlocalizedName().substring ( 5 ) + "_pull_" + ( i - 1 ) );
+    }
+
+    @Override
+    public Icon getIcon ( ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining ) {
+        if ( player.getItemInUse() == null )
+            return this.itemIcon;
+        int time = stack.getMaxItemUseDuration () - useRemaining;
+        if ( time >= 18 )
+            return this.bowIcons [3];
+        else if ( time > 13 )
+            return this.bowIcons [2];
+        else if ( time > 0 )
+            return this.bowIcons [1];
+
+        return this.bowIcons [0];
+    }
 
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
 	{

@@ -8,11 +8,6 @@ public class Planet {
 	 * The name of the planet
 	 */
 	private String planetName;
-
-	/**
-	 * The ID of the galaxy this planet is in.
-	 */
-	private int galaxyID;
 	
 	/**
 	 * The ID for this planet
@@ -36,43 +31,31 @@ public class Planet {
 	 * @param par3 - yCoord on map
 	 */
 	// TODO - Need to make an achievement system to unlock planets, then add the achievement needed to unlock the planet...
-	public Planet (String pName, int pID, int x, int y, int pDimensionID, int gID)
-	{
+	public Planet ( String pName, int pID, int x, int y, int pDimensionID ) {
 		this.planetName = pName;
 		this.planetID = pID;
 		this.xCoord = x;
 		this.yCoord = y;
 		this.planetDimensionID = pDimensionID;
-		this.galaxyID = gID;
 	}
 
-	public String getPlanetName ()
-	{
+	public String getPlanetName () {
 		return this.planetName;
 	}
 
-	public int getPlanetID ()
-	{
+	public int getPlanetID () {
 		return this.planetID;
 	}
 
-	public int getXCoord ()
-	{
+	public int getXCoord () {
 		return this.xCoord;
 	}
 
-	public int getYCoord ()
-	{
+	public int getYCoord () {
 		return this.yCoord;
 	}
 	
-	public int getPlanetDimensionID ()
-	{
+	public int getPlanetDimensionID () {
 		return this.planetDimensionID;
-	}
-	
-	public int getPlanetGalaxyID ()
-	{
-		return this.galaxyID;
 	}
 }
