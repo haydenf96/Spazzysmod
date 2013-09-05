@@ -37,6 +37,22 @@ public class ReciperManager {
         GameRegistry.addSmelting(SpazzysBlocks.titaniumBlock.blockID,
                 new ItemStack(SpazzysItems.titaniumIngot, 1), 1F);
         
+        GameRegistry.addRecipe(new ItemStack(SpazzysItems.spaceHelmet),
+                new Object[] { "XXX", "XGX","XXX", 'X',
+                        Block.cloth, 'G', Block.glass });
+        
+        GameRegistry.addRecipe(new ItemStack(SpazzysItems.spaceJacket),
+                new Object[] { "XRX", "XXX","XXX", 'X',
+                        Block.cloth, 'R', Item.redstone });
+        
+        GameRegistry.addRecipe(new ItemStack(SpazzysItems.spacePants),
+                new Object[] { "XXX", "X X","X X", 'X',
+                        Block.cloth});
+        
+        GameRegistry.addRecipe(new ItemStack(SpazzysItems.spaceShoes),
+                new Object[] { "X X","X X", 'X',
+                        Block.cloth});
+        
         RocketCraftingManager.func_92051_a(new ItemStack(SpazzysItems.spaceship),  new Object[] 
         		{ 
         	"  x  ",
