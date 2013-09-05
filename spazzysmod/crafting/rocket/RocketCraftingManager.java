@@ -16,7 +16,7 @@ public class RocketCraftingManager
 {
 	public static final int WILDCARD_VALUE = Short.MAX_VALUE;
 	private static final RocketCraftingManager instance = new RocketCraftingManager();
-	private List recipes = new ArrayList();
+	private static List recipes = new ArrayList();
 
 	public static final RocketCraftingManager getInstance()
 	{
@@ -33,7 +33,7 @@ public class RocketCraftingManager
 		System.out.println(this.recipes.size() + " recipes");
 	}
 
-	public RocketShapedRecipes func_92051_a(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+	public static RocketShapedRecipes func_92051_a(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
 	{
 		String var3 = "";
 		int var4 = 0;
@@ -103,7 +103,7 @@ public class RocketCraftingManager
 		}
 
 		RocketShapedRecipes var17 = new RocketShapedRecipes(var5, var6, var15, par1ItemStack);
-		this.recipes.add(var17);
+		recipes.add(var17);
 		return var17;
 	}
 
