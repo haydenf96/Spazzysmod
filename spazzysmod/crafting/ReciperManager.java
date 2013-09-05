@@ -67,7 +67,7 @@ public class ReciperManager {
 			" xxx ",
 			" xgx ",
 			" xxx ",
-			" xrx ",
+			"xxrxx",
 			'x',
 			SpazzysItems.titaniumIngot, 'r', SpazzysBlocks.rocketBlock, 'g', Block.glass 
 				});
