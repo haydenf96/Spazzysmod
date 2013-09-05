@@ -64,9 +64,9 @@ public class ReciperManager {
 		RocketCraftingManager.func_92051_a(new ItemStack(SpazzysItems.spaceship),  new Object[] 
 				{ 
 			"  x  ",
+			" xxx ",
 			" xgx ",
 			" xxx ",
-			"  x  ",
 			" xrx ",
 			'x',
 			SpazzysItems.titaniumIngot, 'r', SpazzysBlocks.rocketBlock, 'g', Block.glass 
