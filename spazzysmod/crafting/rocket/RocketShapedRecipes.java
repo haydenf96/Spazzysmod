@@ -1,4 +1,4 @@
-package spazzysmod.crafting;
+package spazzysmod.crafting.rocket;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;

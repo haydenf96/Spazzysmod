@@ -24,8 +24,8 @@ public class GuiUniverse extends GuiScreen {
 		this.drawDefaultBackground();
 		
 		// TODO - all the rendering etc. for the map
-		this.mc.renderEngine.func_110577_a ( SpazzysResources.GUI_UNIVERSE );
-		RenderHelper.drawTexturedQuadFit ( 0, 0, width, height, this.zLevel );
+//		this.mc.renderEngine.func_110577_a ( SpazzysResources.GUI_UNIVERSE );
+//		RenderHelper.drawTexturedQuadFit ( 0, 0, width, height, this.zLevel );
 	}
 	
 	@Override

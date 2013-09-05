@@ -11,7 +11,7 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import spazzysmod.blocks.SpazzysBlocks;
-import spazzysmod.crafting.RocketCraftingManager;
+import spazzysmod.crafting.rocket.RocketCraftingManager;
 
 public class ContainerRocketWorkbench extends Container
 {

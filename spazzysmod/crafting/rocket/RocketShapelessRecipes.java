@@ -1,4 +1,4 @@
-package spazzysmod.crafting;
+package spazzysmod.crafting.rocket;
 
 import java.util.ArrayList;
 import java.util.Iterator;
