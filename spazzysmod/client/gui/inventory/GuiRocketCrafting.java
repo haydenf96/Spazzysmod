@@ -1,41 +1,43 @@
 package spazzysmod.client.gui.inventory;
 
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import spazzysmod.SpazzysmodBase;
 
 public class GuiRocketCrafting extends GuiContainer {
 	public static final int GUI_ID = 21;
 
-	private static final ResourceLocation field_110422_t = new ResourceLocation("textures/gui/container/crafting_table.png");
-
-	public GuiRocketCrafting ( InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5 ) {
-		super( new ContainerRocketWorkbench ( par1InventoryPlayer, par2World, par3, par4, par5 ) );
+	private ResourceLocation better = new ResourceLocation(SpazzysmodBase.MODID, "textures/gui/rocketWorkbench.png");
+	
+	public GuiRocketCrafting(InventoryPlayer inventoryplayer, World world, int i, int j, int k)
+	{
+		super(new ContainerRocketWorkbench(inventoryplayer, world, i, j, k));
 	}
 
-	/**
-	 * Draw the foreground layer for the GuiContainer (everything in front of the items)
-	 */
-	@Override
-	protected void drawGuiContainerForegroundLayer ( int par1, int par2 ) {
-		this.fontRenderer.drawString ( "Rocket Workbench", 28, 6, 4210752 );
-		this.fontRenderer.drawString ( I18n.func_135053_a("container.inventory"), 8, this.ySize - 96 + 2, 4210752 );
+	public void onGuiClosed()
+	{
+		super.onGuiClosed();
 	}
 
-	/**
-	 * Draw the background layer for the GuiContainer (everything behind the items)
-	 */
-	@Override
-	protected void drawGuiContainerBackgroundLayer ( float par1, int par2, int par3 ) {
+	protected void drawGuiContainerForegroundLayer(int par1, int par2)
+	{
+		this.fontRenderer.drawString(StatCollector.translateToLocal("\u00a76Better"), 120, 5, 0x404040);
+		this.fontRenderer.drawString(StatCollector.translateToLocal("\u00a76Crafting"), 116, 20, 0x404040);
+		//this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 - 14, 0x404040);
+	}
+
+	protected void drawGuiContainerBackgroundLayer(float f, int i, int j)
+	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.func_110434_K().func_110577_a(field_110422_t);
-		int k = (this.width - this.xSize) / 2;
-		int l = (this.height - this.ySize) / 2;
-		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+		mc.renderEngine.func_110577_a(better);
+		int l = (width - xSize) / 2;
+		int i1 = (height - ySize) / 2;
+		drawTexturedModalRect(l, i1, 0, 0, xSize, ySize);
 	}
 }

@@ -1,6 +1,5 @@
 package spazzysmod.client.gui.inventory;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,197 +9,137 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
+import spazzysmod.blocks.SpazzysBlocks;
+import spazzysmod.crafting.RocketCraftingManager;
 
 public class ContainerRocketWorkbench extends Container
 {
-	/** The crafting matrix inventory (3x3). */
-	public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 
-	public IInventory craftResult = new InventoryCraftResult();
+	public InventoryCrafting craftMatrix;
+	public IInventory craftResult;
 	private World worldObj;
-
 	private int posX;
 	private int posY;
 	private int posZ;
 
-
-	public ContainerRocketWorkbench(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
-
+	public ContainerRocketWorkbench(InventoryPlayer inventoryplayer, World world, int i, int j, int k)
 	{
-		this.worldObj = par2World;
-		this.posX = par3;
-
-		this.posY = par4;
-		this.posZ = par5;
-
-		this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
-
-		int l;
-		int i1;
-
-		for (l = 0; l < 3; ++l)
-
+		craftMatrix = new InventoryCrafting(this, 5, 5);
+		craftResult = new InventoryCraftResult();
+		worldObj = world;
+		posX = i;
+		posY = j;
+		posZ = k;
+		this.addSlotToContainer(new SlotCrafting(inventoryplayer.player, craftMatrix, craftResult, 0, 131, 36));
+		for(int l = 0; l < 5; l++)
 		{
-			for (i1 = 0; i1 < 3; ++i1)
-
+			for(int k1 = 0; k1 < 5; k1++)
 			{
-				this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
+				this.addSlotToContainer(new Slot(craftMatrix, k1 + l * 5, 4 + k1 * 18, 3 + l * 18));
+			}
 
+		}
+
+		for(int i1 = 0; i1 < 3; i1++)
+		{
+			for(int l1 = 0; l1 < 9; l1++)
+			{
+				this.addSlotToContainer(new Slot(inventoryplayer, l1 + i1 * 9 + 9, 8 + l1 * 18, 94 + i1 * 18));
+			}
+
+		}
+
+		for(int j1 = 0; j1 < 9; j1++)
+		{
+			this.addSlotToContainer(new Slot(inventoryplayer, j1, 8 + j1 * 18, 148));
+		}
+
+		onCraftMatrixChanged(craftMatrix);
+	}
+
+	public void onCraftMatrixChanged(IInventory iinventory)
+	{
+		craftResult.setInventorySlotContents(0, RocketCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));
+	}
+
+	public void onContainerClosed(EntityPlayer entityplayer)
+	{
+		super.onContainerClosed(entityplayer);
+		if(worldObj.isRemote)
+		{
+			return;
+		}
+		for(int i = 0; i < 25; i++)
+		{
+			ItemStack itemstack = craftMatrix.getStackInSlot(i);
+			if(itemstack != null)
+			{
+				entityplayer.dropPlayerItem(itemstack);
 			}
 		}
 
-		for (l = 0; l < 3; ++l)
+	}
 
+	public boolean canInteractWith(EntityPlayer entityplayer)
+	{
+		if(worldObj.getBlockId(posX, posY, posZ) != SpazzysBlocks.rocketWorkbench.blockID)
 		{
-			for (i1 = 0; i1 < 9; ++i1)
+			return false;
+		} else
+		{
+			return entityplayer.getDistanceSq((double)posX + 0.5D, (double)posY + 0.5D, (double)posZ + 0.5D) <= 64D;
+		}
+	}
 
+	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
+	{
+		ItemStack itemstack = null;
+		Slot slot = (Slot)inventorySlots.get(par2);
+		if(slot != null && slot.getHasStack())
+		{
+			ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
+			if(par2 == 0)
 			{
-				this.addSlotToContainer(new Slot(par1InventoryPlayer, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
-
+				if(!mergeItemStack(itemstack1, 10, 46, true))
+				{
+					return null;
+				}
+			} else
+				if(par2 >= 10 && par2 < 37)
+				{
+					if(!mergeItemStack(itemstack1, 37, 46, false))
+					{
+						return null;
+					}
+				} else
+					if(par2 >= 37 && par2 < 46)
+					{
+						if(!mergeItemStack(itemstack1, 10, 37, false))
+						{
+							return null;
+						}
+					} else
+						if(!mergeItemStack(itemstack1, 10, 46, false))
+						{
+							return null;
+						}
+			if(itemstack1.stackSize == 0)
+			{
+				slot.putStack(null);
+			} else
+			{
+				slot.onSlotChanged();
+			}
+			if(itemstack1.stackSize != itemstack.stackSize)
+			{
+				slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
+			} else
+			{
+				return null;
 			}
 		}
-
-		for (l = 0; l < 9; ++l)
-
-		{
-			this.addSlotToContainer(new Slot(par1InventoryPlayer, l, 8 + l * 18, 142));
-
-		}
-
-		this.onCraftMatrixChanged(this.craftMatrix);
+		return itemstack;
 	}
-
-
-	/**
-	 * Callback for when the crafting matrix is changed.
-	 */
-	 public void onCraftMatrixChanged(IInventory par1IInventory)
-
-	{
-		 this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
-
-	}
-
-	 /**
-	  * Called when the container is closed.
-	  */
-	 public void onContainerClosed(EntityPlayer par1EntityPlayer)
-
-	 {
-		 super.onContainerClosed(par1EntityPlayer);
-
-		 if (!this.worldObj.isRemote)
-
-		 {
-			 for (int i = 0; i < 9; ++i)
-
-			 {
-				 ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
-
-
-				 if (itemstack != null)
-				 {
-
-					 par1EntityPlayer.dropPlayerItem(itemstack);
-				 }
-			 }
-
-		 }
-	 }
-
-	 public boolean canInteractWith(EntityPlayer par1EntityPlayer)
-
-	 {
-		 return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != Block.workbench.blockID ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
-
-	 }
-
-	 /**
-	  * Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.
-	  */
-	 public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
-
-	 {
-		 ItemStack itemstack = null;
-		 Slot slot = (Slot)this.inventorySlots.get(par2);
-
-
-		 if (slot != null && slot.getHasStack())
-
-		 {
-			 ItemStack itemstack1 = slot.getStack();
-			 itemstack = itemstack1.copy();
-
-
-			 if (par2 == 0)
-			 {
-				 if (!this.mergeItemStack(itemstack1, 10, 46, true))
-
-				 {
-					 return null;
-				 }
-
-
-				 slot.onSlotChange(itemstack1, itemstack);
-			 }
-
-			 else if (par2 >= 10 && par2 < 37)
-
-			 {
-				 if (!this.mergeItemStack(itemstack1, 37, 46, false))
-
-				 {
-					 return null;
-				 }
-
-			 }
-			 else if (par2 >= 37 && par2 < 46)
-
-			 {
-				 if (!this.mergeItemStack(itemstack1, 10, 37, false))
-
-				 {
-					 return null;
-				 }
-
-			 }
-			 else if (!this.mergeItemStack(itemstack1, 10, 46, false))
-
-			 {
-				 return null;
-			 }
-
-			 if (itemstack1.stackSize == 0)
-
-			 {
-				 slot.putStack((ItemStack)null);
-			 }
-
-			 else
-			 {
-				 slot.onSlotChanged();
-			 }
-
-
-			 if (itemstack1.stackSize == itemstack.stackSize)
-
-			 {
-				 return null;
-			 }
-
-			 slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
-
-		 }
-
-		 return itemstack;
-	 }
-
-	 public boolean func_94530_a(ItemStack par1ItemStack, Slot par2Slot)
-
-	 {
-		 return par2Slot.inventory != this.craftResult && super.func_94530_a(par1ItemStack, par2Slot);
-
-	 }
 }
