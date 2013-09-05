@@ -57,11 +57,11 @@ public class ReciperManager {
         		{ 
         	"  x  ",
         	" xgx ",
-        	" xxx ",
+        	" xrx ",
         	"  x  ",
         	" x x ",
         	'x',
-            SpazzysItems.titaniumIngot, 'Y', Item.diamond, 'g', Block.glass 
+            SpazzysItems.titaniumIngot, 'r', SpazzysBlocks.rocketBlock, 'g', Block.glass 
             });
     }
 }
