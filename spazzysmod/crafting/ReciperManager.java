@@ -71,5 +71,13 @@ public class ReciperManager {
 			'x',
 			SpazzysItems.titaniumIngot, 'r', SpazzysBlocks.rocketBlock, 'g', Block.glass 
 				});
+		
+		GameRegistry.addRecipe(new ItemStack(SpazzysBlocks.rocketBlock),
+				new Object[] { 
+			"XXX",
+			"XtX",
+			"X*X",
+			'*',
+			Block.blockRedstone, 'X', SpazzysItems.titaniumIngot, 't', Item.bucketLava});
 	}
 }
