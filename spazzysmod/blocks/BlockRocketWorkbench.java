@@ -2,6 +2,7 @@ package spazzysmod.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -15,8 +16,6 @@ public class BlockRocketWorkbench extends Block
 {
 	@SideOnly ( Side.CLIENT )
 	private Icon workbenchIconTop;
-	@SideOnly ( Side.CLIENT )
-	private Icon workbenchIconFront;
 
 	protected BlockRocketWorkbench ( int par1 )
 	{
@@ -26,10 +25,16 @@ public class BlockRocketWorkbench extends Block
 		this.setResistance ( 1F );
 		this.func_111022_d ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName ().substring ( 5 ) );
 	}
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:rocketWorkbenchSide");
+		this.workbenchIconTop = par1IconRegister.registerIcon("spazzysmod:rocketWorkbenchTop");
+	}
 
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon ( int par1, int par2 ) {
-		return par1 == 1 ? this.workbenchIconTop : ( par1 == 0 ? Block.planks.getBlockTextureFromSide ( par1 ) : ( par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront ) );
+		return par1 == 1 ? this.workbenchIconTop : ( par1 == 0 ? Block.blockIron.getBlockTextureFromSide ( par1 ) : ( par1 != 2 && par1 != 4 ? this.blockIcon : this.blockIcon ) );
 
 	}
 
