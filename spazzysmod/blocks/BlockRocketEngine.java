@@ -20,8 +20,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockRocketEngine extends Block 
 {
-
-
 	@SideOnly(Side.CLIENT)
 	private Icon bottom;
 	@SideOnly(Side.CLIENT)
@@ -94,10 +92,13 @@ public class BlockRocketEngine extends Block
 	 */
 	public boolean onBlockActivated(World par1World, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
 	{
-		if (par1World.getBlockId(x, y + 1, z) == Block.blockIron.blockID && par1World.getBlockId(x, y + 2, z) == Block.glass.blockID && par1World.getBlockId(x, y + 3, z) == Block.blockIron.blockID && par1World.getBlockId(x + 1, y, z) == Block.fence.blockID && par1World.getBlockId(x, y, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y, z) == Block.fence.blockID && par1World.getBlockId(x, y, z - 1) == Block.fence.blockID && par1World.getBlockId(x + 1, y - 1, z) == Block.fence.blockID && par1World.getBlockId(x, y - 1, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y - 1, z) == Block.fence.blockID && par1World.getBlockId(x, y - 1, z - 1) == Block.fence.blockID)
+		if (par1World.getBlockId(x, y + 1, z) == Block.blockIron.blockID && par1World.getBlockId(x, y + 2, z) == Block.glass.blockID
+				&& par1World.getBlockId(x, y + 3, z) == Block.blockIron.blockID && par1World.getBlockId(x + 1, y, z) == Block.fence.blockID
+				&& par1World.getBlockId(x, y, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y, z) == Block.fence.blockID
+				&& par1World.getBlockId(x, y, z - 1) == Block.fence.blockID && par1World.getBlockId(x + 1, y - 1, z) == Block.fence.blockID
+				&& par1World.getBlockId(x, y - 1, z + 1) == Block.fence.blockID && par1World.getBlockId(x - 1, y - 1, z) == Block.fence.blockID
+				&& par1World.getBlockId(x, y - 1, z - 1) == Block.fence.blockID)
 		{	
-		
-
 			if(par5EntityPlayer.dimension == -1)
 			{
 				par5EntityPlayer.addChatMessage("Can't lift off from the Nether!");
@@ -106,7 +107,7 @@ public class BlockRocketEngine extends Block
 			{
 				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
 				{
-					SpazzysmodBase.displayGUI (new GuiPlanets( par5EntityPlayer ) );
+					par5EntityPlayer.openGui ( SpazzysmodBase.instance, GuiPlanets.GUI_ID, par1World, x, y, z );
 					par1World.setBlockToAir(x, y, z);
 					par1World.setBlockToAir(x, y + 1, z);
 					par1World.setBlockToAir(x, y + 2, z);
@@ -119,59 +120,43 @@ public class BlockRocketEngine extends Block
 					par1World.setBlockToAir(x + 1, y - 1, z);
 					par1World.setBlockToAir(x, y - 1, z - 1);
 					par1World.setBlockToAir(x - 1, y - 1, z);
-					
 				}
 			}
-			
-
 		}
 		return true;
 	}
 
 	@SideOnly(Side.CLIENT)
-
 	/**
 	 * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
 	 */
 	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
 	{
 		if (par5 == 1)
-		{
 			return this.top;
-		}
 		else if (par5 == 0)
-		{
 			return this.bottom;
-		}
-		else
-		{
+		else {
 			Material material = par1IBlockAccess.getBlockMaterial(par2, par3 + 1, par4);
 			return material != Material.snow && material != Material.craftedSnow ? this.blockIcon : this.blockIcon;
 		}
 	}
 
-
-
-
-
 	/**
 	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
 	 */
-	public Icon getIcon(int par1, int par2)
-	{
+	public Icon getIcon(int par1, int par2) {
 		return par1 == 1 ? this.top : (par1 == 0 ? this.bottom : this.blockIcon);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
-				+ this.getUnlocalizedName().substring(5));
+		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:" + this.getUnlocalizedName().substring(5));
 		this.bottom =  par1IconRegister.registerIcon("spazzysmod:"
 				+ "bottom" + this.getUnlocalizedName().substring(5));
 
 		this.top =  par1IconRegister.registerIcon("spazzysmod:"
 				+ "top" + this.getUnlocalizedName().substring(5));
 	}
-
 }

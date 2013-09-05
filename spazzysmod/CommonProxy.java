@@ -30,7 +30,8 @@ public class CommonProxy implements IGuiHandler {
 		TileEntity tile_entity = world.getBlockTileEntity ( x, y, z );
 		
 		if ( ID == GuiRocketCrafting.GUI_ID )
-			return ID == GuiRocketCrafting.GUI_ID && world.getBlockId ( x, y, z ) == SpazzysBlocks.rocketWorkbench.blockID ? new ContainerRocketWorkbench ( player.inventory, world, x, y, z ) : null;
+			return ID == GuiRocketCrafting.GUI_ID
+			&& world.getBlockId ( x, y, z ) == SpazzysBlocks.rocketWorkbench.blockID ? new ContainerRocketWorkbench ( player.inventory, world, x, y, z ) : null;
 		return null;
 	}
 
@@ -43,7 +44,8 @@ public class CommonProxy implements IGuiHandler {
 		else if ( ID == GuiUniverse.GUI_ID )
 			return new GuiUniverse ( player );
 		else if ( ID == GuiRocketCrafting.GUI_ID )
-			return ID == GuiRocketCrafting.GUI_ID && world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new GuiRocketCrafting ( player.inventory, world, x, y, z ) : null;
+			return ID == GuiRocketCrafting.GUI_ID
+			&& world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new GuiRocketCrafting ( player.inventory, world, x, y, z ) : null;
 		
 		return null;
 	}

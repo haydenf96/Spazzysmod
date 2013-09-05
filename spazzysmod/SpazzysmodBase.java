@@ -2,10 +2,11 @@ package spazzysmod;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
 import net.minecraftforge.common.Configuration;
 import spazzysmod.config.SpazzysConfig;
-import spazzysmod.entity.passive.EntityGopher;
 import spazzysmod.world.TeleporterSpazzys;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -14,7 +15,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = SpazzysmodBase.MODID, name = "Spazzy's Mod", version = "V 0.4")
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
@@ -45,13 +45,5 @@ public class SpazzysmodBase {
 	public void init(FMLInitializationEvent event)
 	{
 		proxy.initProxy();
-	}
-	
-	public static void displayGUI ( int guiID ) {
-		Minecraft.getMinecraft ().thePlayer.openGui ( SpazzysmodBase.instance, guiID, Minecraft.getMinecraft ().theWorld, 0, 0, 0);
-	}
-	
-	public static void displayGUI ( GuiScreen guiscreen ) {
-		Minecraft.getMinecraft ().displayGuiScreen( guiscreen );
 	}
 }

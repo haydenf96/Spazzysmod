@@ -29,31 +29,18 @@ public class BlockRocketWorkbench extends Block
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2) {
-		return par1 == 1 ? this.workbenchIconTop : (par1 == 0 ? Block.planks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront));
+	public Icon getIcon ( int par1, int par2 ) {
+		return par1 == 1 ? this.workbenchIconTop : ( par1 == 0 ? Block.planks.getBlockTextureFromSide ( par1 ) : ( par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront ) );
 
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon("BetterTable:better_side");
-
-		this.workbenchIconTop = par1IconRegister.registerIcon("BetterTable:better_top");
-
-		this.workbenchIconFront = par1IconRegister.registerIcon("BetterTable:better_front");
-
-	}
-
-	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9) {
-		if (!player.isSneaking())
-		{
+	public boolean onBlockActivated ( World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9 ) {
+		if ( !player.isSneaking () ) {
 			player.openGui(SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID, var1, var2, var3, var4);
 
 			return true;
 		}
 		else
-		{
 			return false;
-		}
 	}
 }
