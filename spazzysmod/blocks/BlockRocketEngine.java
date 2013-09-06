@@ -11,9 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import spazzysmod.SpazzysmodBase;
 import spazzysmod.client.gui.GuiPlanets;
-import spazzysmod.client.gui.GuiUniverse;
 import spazzysmod.creativetab.SpazzysTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -105,9 +103,9 @@ public class BlockRocketEngine extends Block
 			}
 			else
 			{
-				if(par5EntityPlayer.getClass()!= EntityClientPlayerMP.class)
+				if(par5EntityPlayer.getClass() != EntityClientPlayerMP.class)
 				{
-					par5EntityPlayer.openGui ( SpazzysmodBase.instance, GuiPlanets.GUI_ID, par1World, x, y, z );
+					Minecraft.getMinecraft().displayGuiScreen ( new GuiPlanets( par5EntityPlayer ) );
 					par1World.setBlockToAir(x, y, z);
 					par1World.setBlockToAir(x, y + 1, z);
 					par1World.setBlockToAir(x, y + 2, z);
