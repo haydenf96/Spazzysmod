@@ -60,7 +60,12 @@ public class PlayerTickHandler implements ITickHandler
 								currentPants != null && currentPants.itemID == SpazzysItems.spacePants.itemID &&
 										currentFeet != null && currentFeet.itemID == SpazzysItems.spaceShoes.itemID)
 				{
-				
+					
+					currentHelmet.damageItem(1, player);
+					currentJacket.damageItem(1, player);
+					currentPants.damageItem(1, player);
+					currentFeet.damageItem(1, player);
+					
 				}
 				else
 				{

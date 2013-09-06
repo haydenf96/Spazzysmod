@@ -39,7 +39,7 @@ public class SpazzysItems {
 	public static final EnumToolMaterial TITANIUM = EnumHelper.addToolMaterial(
 			"TITANIUM", 2, 20000, 10.0F, 7, 10);
 
-	static EnumArmorMaterial SPACESUIT = EnumHelper.addArmorMaterial("SPACESUIT", -1, new int[] { 0, 0, 0, 0 }, 0);
+	static EnumArmorMaterial SPACESUIT = EnumHelper.addArmorMaterial("SPACESUIT", 100000, new int[] { 0, 0, 0, 0 }, 0);
 
 	public static void initItems() {
 		titaniumIngot = new ItemTitaniumIngot(SpazzysConfig.titaniumIngotID)
