@@ -61,6 +61,33 @@ public class ReciperManager {
 			'*',
 			Block.workbench, 'X', Item.ingotIron});
 
+
+		GameRegistry.addRecipe(new ItemStack(SpazzysItems.launchPad), new Object[]
+				{ 
+			"***",
+			"XXX",
+			
+			'X',Item.ingotIron, '*', SpazzysItems.titaniumIngot
+			});
+		
+		GameRegistry.addRecipe(new ItemStack(SpazzysItems.explosiveBow), new Object[]
+				{ 
+			" x*",
+			"xt*",
+			" x*",
+			
+			'x',Item.stick, '*', Item.silk, 't', Block.tnt
+			});
+		
+		GameRegistry.addRecipe(new ItemStack(SpazzysItems.explosiveArrow, 4), new Object[]
+				{ 
+			"t",
+			"x",
+			"*",
+			
+			'x',Item.stick, '*', Item.feather, 't', Block.tnt
+			});
+			
 		RocketCraftingManager.func_92051_a(new ItemStack(SpazzysItems.spaceship),  new Object[] 
 				{ 
 			"  x  ",
