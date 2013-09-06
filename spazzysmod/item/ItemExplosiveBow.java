@@ -1,5 +1,6 @@
 package spazzysmod.item;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,7 +23,7 @@ public class ItemExplosiveBow extends Item {
 	public ItemExplosiveBow(int par1) {
 		super(par1);
 	}
-
+	
 	@SideOnly(Side.CLIENT)
     private Icon [] bowIcons = new Icon [4];
 

@@ -71,14 +71,14 @@ public class ReciperManager {
 			'x',
 			SpazzysItems.titaniumIngot, 'r', SpazzysBlocks.rocketBlock, 'g', Block.glass 
 				});
-		
+
 		RocketCraftingManager.func_92051_a(new ItemStack(SpazzysBlocks.rocketBlock, 1), new Object[] {
-        	"#####",
-        	"##B##",
-        	"#BAB#",
-        	"##B##",
-        	"#####",
-        	'#', SpazzysItems.TITANIUM, 'A', Item.bucketLava, 'B', Item.redstone
-        });
+			"#####",
+			"##B##",
+			"#BAB#",
+			"##B##",
+			"#####",
+			'#', SpazzysItems.titaniumIngot, 'A', Item.bucketLava, 'B', Item.redstone
+		});
 	}
 }
