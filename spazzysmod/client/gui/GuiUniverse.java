@@ -30,7 +30,7 @@ public class GuiUniverse extends GuiScreen {
 	
 	@Override
 	public void initGui () {
-		newList = new GuiNewList<String>(0, 0, 0, 200, 200 /* ( width / 4 * 3 ), 0, ( width / 4 ), height */);
+		newList = new GuiNewList<String>(0, 0, 0, -200, 200 /* ( width / 4 * 3 ), 0, ( width / 4 ), height */);
 		
 		for ( int i = 0; i < planetList.size(); ++i )
 			newList.add ( planetList.get ( i ).getPlanetName() );

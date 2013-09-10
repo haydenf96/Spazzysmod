@@ -206,7 +206,8 @@ public class GuiNewList<T> extends GuiButton
 		}
 	}
 	
-	public void remove(int item){
+	public void remove(int item)
+	{
 		itemList.remove(item);
 	}
 	

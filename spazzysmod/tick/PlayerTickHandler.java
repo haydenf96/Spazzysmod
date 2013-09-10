@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import spazzysmod.SpazzysmodBase;
 import spazzysmod.api.planets.PlanetAPI;
 import spazzysmod.item.SpazzysItems;
 import spazzysmod.world.SpazzysDimensions;
@@ -69,7 +70,7 @@ public class PlayerTickHandler implements ITickHandler
 				}
 				else
 				{
-					player.attackEntityFrom(DamageSource.inWall, 2F);
+					player.attackEntityFrom(DamageSource.inWall, 1F);			
 				}
 
 			}

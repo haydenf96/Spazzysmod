@@ -1,10 +1,6 @@
 package spazzysmod;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
 import net.minecraftforge.common.Configuration;
 import spazzysmod.config.SpazzysConfig;
 import spazzysmod.world.TeleporterSpazzys;
@@ -28,6 +24,7 @@ public class SpazzysmodBase {
 	@SidedProxy ( clientSide = "spazzysmod.CommonProxy", serverSide = "spazzysmod.client.ClientProxy" )
 	public static CommonProxy proxy;
 	
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -43,7 +40,7 @@ public class SpazzysmodBase {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
+	{		
 		proxy.initProxy();
 	}
 }

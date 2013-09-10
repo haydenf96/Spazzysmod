@@ -3,7 +3,7 @@ package spazzysmod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import spazzysmod.config.SpazzysConfig;
-import spazzysmod.world.gen.feature.TitaniumWorldGenerator;
+import spazzysmod.world.gen.feature.SpazzysWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -14,14 +14,21 @@ public class SpazzysBlocks {
 
 	public static Block rocketBlock;
 	public static Block rocketWorkbench;
+	
+	public static Block meteorite;
 
-	@SuppressWarnings("deprecation")
-	public static void initBlocks() {
+	public static void initBlocks()
+	{
 		titaniumBlock = new BlockTitaniumBlock(SpazzysConfig.titaniumBlockID,
 				Material.rock).setUnlocalizedName("titaniumBlock");
 		GameRegistry.registerBlock(titaniumBlock, "TitaniumBlock" );
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
-		GameRegistry.registerWorldGenerator(new TitaniumWorldGenerator());
+		GameRegistry.registerWorldGenerator(new SpazzysWorldGenerator());
+		
+		meteorite = new BlockMeteorite(SpazzysConfig.meteoriteID).setUnlocalizedName("meteorite");
+		GameRegistry.registerBlock(meteorite, "Meteorite");
+		LanguageRegistry.addName(meteorite, "Meteorite");
+
 
 		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron).setUnlocalizedName("launchPad");
 		GameRegistry.registerBlock(launchPad, "LunchPad");

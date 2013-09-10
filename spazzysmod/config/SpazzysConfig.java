@@ -13,6 +13,8 @@ public class SpazzysConfig {
 	public static int redRockID;
 	public static int rocketEngineID;
 	public static int rocketWorkbenchID;
+	
+	public static int meteoriteID;
 
 	public static int titaniumIngotID;
 	public static int titaniumSwordID;
@@ -52,6 +54,8 @@ public class SpazzysConfig {
 				"red Rock ID", 2490, "redRockID").getInt();
 		marsRockID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
 				"mars Rock ID", 251, "marsRockID").getInt();
+		meteoriteID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
+				"Meteorite ID", 2502, "MeteoriteID").getInt();
 
 		rocketEngineID = config.get (Configuration.CATEGORY_BLOCK,
 				"Rocket Block ID", 2900).getInt();
