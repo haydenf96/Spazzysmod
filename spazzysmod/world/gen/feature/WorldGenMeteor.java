@@ -127,7 +127,12 @@ public class WorldGenMeteor extends WorldGenerator
 
 			tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(SpazzysItems.titaniumIngot,rand.nextInt(20)));
 			tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(Item.redstone,rand.nextInt(30)));
-			tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(SpazzysItems.explosiveBow));
+			
+			if(rand.nextInt(4) == 1)
+			{
+				tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(SpazzysItems.explosiveBow, rand.nextInt(1)));
+			}
+			
 			tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(SpazzysItems.explosiveArrow,rand.nextInt(15)));
 
 			if(rand.nextInt(5) == 1)

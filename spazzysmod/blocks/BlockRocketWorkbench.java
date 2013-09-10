@@ -7,8 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import spazzysmod.SpazzysmodBase;
+import spazzysmod.client.gui.inventory.GuiRocketCrafting;
 import spazzysmod.creativetab.SpazzysTabs;
-import spazzysmod.world.gen.mars.WorldGenTownHall;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -40,10 +40,7 @@ public class BlockRocketWorkbench extends Block
 
 	public boolean onBlockActivated ( World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9 ) {
 		if ( !player.isSneaking () ) {
-			// player.openGui(SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID, var1, var2, var3, var4);
-			
-			WorldGenTownHall townHall = new WorldGenTownHall ( var1, var2, var3, var4 );
-			townHall.generate();
+			player.openGui(SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID, var1, var2, var3, var4);
 
 			return true;
 		}
