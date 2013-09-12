@@ -28,8 +28,8 @@ public class WorldGenTownHall {
 				for ( int k = 0; k < BLOCK_SIZE; ++k )
 					if ( j == 5 || j == 10 || j == 15 || j == 20 )
 						for ( int a = 0; a < 3; ++a )
-							world.setBlockToAir ( x + i + a, y + j, z + k + a) ;
-
+							world.setBlockToAir ( x + i + a, y + j, z + k + a);
+		
 		// for another loop: if ( ( i > 1 && j > 1 ) &&  ( i < 19 && j < 19 ) )
 	}
 }
