@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import spazzysmod.blocks.MarsBlocks;
 import spazzysmod.blocks.MoonBlocks;
 import spazzysmod.blocks.SpazzysBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -24,7 +25,7 @@ public class SpazzysWorldGenerator implements IWorldGenerator {
 		case 10:
 			generateMoon(world, random, chunkX * 16, chunkZ * 16);
 		case 12:
-			generateMars(world, random, chunkX * 16, chunkZ * 16);
+			generateMarsMeteor(world, random, chunkX * 16, chunkZ * 16);
 		}
 
 	}
@@ -47,8 +48,18 @@ public class SpazzysWorldGenerator implements IWorldGenerator {
 			}		
 	}
 
-	private void generateMars(World world, Random random, int i, int j) {
-
+	private void generateMarsMeteor(World world, Random random, int i, int j) 
+	{
+		int randPosX = i + random.nextInt(16);
+		int randPosY = random.nextInt(65);
+		int randPosZ = j + random.nextInt(16);
+		int block = world.getBlockId(i, randPosY, j);
+		
+		if(block == MarsBlocks.marsRock.blockID && randPosY > 60)
+		{
+			new WorldGenMeteor()
+			.generate(world, random, randPosX, randPosY, randPosZ);
+		}		
 	}
 
 	private void generateNether(World world, Random random, int i, int j) {
