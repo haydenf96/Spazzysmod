@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid = SpazzysmodBase.MODID, name = "Spazzy's Mod", version = "V 0.4")
+@Mod(modid = SpazzysmodBase.MODID, name = "Spazzy's Mod", version = "V 0.71")
 @NetworkMod ( clientSideRequired = true, serverSideRequired = false )
 public class SpazzysmodBase {
 
