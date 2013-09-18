@@ -3,6 +3,7 @@ package spazzysmod.world;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import spazzysmod.world.biome.SpazzysBiomes;
 import spazzysmod.world.chunk.ChunkManagerMars;
@@ -23,6 +24,12 @@ public class WorldProviderMars extends WorldProvider {
         this.dimensionId = SpazzysDimensions.marsDimensionID;
     }
 
+    
+    @Override
+    public boolean canDoLightning(Chunk chunk)
+    {
+        return false;
+    }
     
     @Override
     @SideOnly(Side.CLIENT)

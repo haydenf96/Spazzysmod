@@ -25,7 +25,6 @@ public class WorldProviderMoon extends WorldProvider {
      */
 
 
-
     @Override
     public IChunkProvider createChunkGenerator() {
         return new ChunkManagerMoon(this.worldObj, this.worldObj.getSeed(),
