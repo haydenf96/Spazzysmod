@@ -18,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -169,21 +170,20 @@ public class WorldGenMeteor extends WorldGenerator
 				tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(Item.emerald,rand.nextInt(2)));
 			}
 
-			if(rand.nextInt(50) == 1)
+			if(rand.nextInt(25) == 1)
 			{
-				for (int i = 0; i < rand.nextInt(4); i++)
-				{
-					Entity entity = new EntityCreeper(world);
-					EntityLiving entityliving = (EntityLiving)entity;
-					entity.setLocationAndAngles(x, y, z, 0, 0);
-					entityliving.rotationYawHead = entityliving.rotationYaw;
-					entityliving.renderYawOffset = entityliving.rotationYaw;
-					entityliving.func_110161_a((EntityLivingData)null);
-					world.spawnEntityInWorld(entity);
-					entityliving.playLivingSound();
-				}
-				
-				tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(Item.diamond,rand.nextInt(10)));
+				world.setBlock(x + 1, y - 4, z + 1, Block.mobSpawner.blockID, 0, 2);
+	            TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(x + 1, y - 4, z + 1);
+
+	            if (tileentitymobspawner != null)
+	            {
+	                tileentitymobspawner.getSpawnerLogic().setMobID("Creeper");
+	            }
+	            else
+	            {
+	                System.err.println("Failed to fetch mob spawner entity at (" + x + ", " + y + ", " + z + ")");
+	            }
+				tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(Item.diamond,rand.nextInt(6)));
 				tileentitychest.setInventorySlotContents(rand.nextInt(27), new ItemStack(Item.emerald,rand.nextInt(4)));
 			}
 		}

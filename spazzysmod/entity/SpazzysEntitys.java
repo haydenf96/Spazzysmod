@@ -25,7 +25,7 @@ public class SpazzysEntitys
                 BiomeGenBase.beach, BiomeGenBase.extremeHills,
                 BiomeGenBase.extremeHillsEdge, BiomeGenBase.plains);
         
-        LanguageRegistry.instance().addStringLocalization("entity.Spazzy_Spazzysmod.Gopher.name",
+        LanguageRegistry.instance().addStringLocalization("entity.spazzyssmod.Gopher.name",
                 "en_US", "Gopher");
         registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
     }
