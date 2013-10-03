@@ -10,6 +10,7 @@ import spazzysmod.client.renderer.entity.RenderGopher;
 import spazzysmod.entity.passive.EntityGopher;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import spazzysmod.SpazzysmodBase;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class SpazzysEntitys
@@ -25,7 +26,7 @@ public class SpazzysEntitys
                 BiomeGenBase.beach, BiomeGenBase.extremeHills,
                 BiomeGenBase.extremeHillsEdge, BiomeGenBase.plains);
         
-        LanguageRegistry.instance().addStringLocalization("entity.spazzyssmod.Gopher.name",
+        LanguageRegistry.instance().addStringLocalization("entity." + SpazzysmodBase.MODID + ".Gopher.name",
                 "en_US", "Gopher");
         registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
     }
