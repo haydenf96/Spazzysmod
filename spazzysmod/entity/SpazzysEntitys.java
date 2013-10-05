@@ -7,10 +7,11 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import spazzysmod.SpazzysmodBase;
 import spazzysmod.client.renderer.entity.RenderGopher;
+import spazzysmod.entity.monster.EntityAlien;
 import spazzysmod.entity.passive.EntityGopher;
+import spazzysmod.world.biome.SpazzysBiomes;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import spazzysmod.SpazzysmodBase;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class SpazzysEntitys
@@ -26,8 +27,16 @@ public class SpazzysEntitys
                 BiomeGenBase.beach, BiomeGenBase.extremeHills,
                 BiomeGenBase.extremeHillsEdge, BiomeGenBase.plains);
         
-        LanguageRegistry.instance().addStringLocalization("entity." + SpazzysmodBase.MODID + ".Gopher.name",
+        EntityRegistry.addSpawn(EntityAlien.class, 20, 2, 4,
+                EnumCreatureType.monster,
+                SpazzysBiomes.marsBiome);
+        
+        LanguageRegistry.instance().addStringLocalization("entity.spazzyssmod.Gopher.name",
                 "en_US", "Gopher");
+        registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
+        
+        LanguageRegistry.instance().addStringLocalization("entity.spazzyssmod.Alien.name",
+                "en_US", "Alien");
         registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
     }
 
@@ -36,6 +45,10 @@ public class SpazzysEntitys
     	EntityRegistry.registerModEntity(EntityGopher.class, "Gopher", 1, SpazzysmodBase.instance, 80, 1, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityGopher.class,
                 new RenderGopher());
+        
+        EntityRegistry.registerModEntity(EntityAlien.class, "Alien", 1, SpazzysmodBase.instance, 80, 1, true);
+        RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class,
+                new RenderAlien());
     }
     
     public static int getUniqueEntityId() 
