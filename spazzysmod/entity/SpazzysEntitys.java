@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import spazzysmod.SpazzysmodBase;
+import spazzysmod.client.renderer.entity.RenderAlien;
 import spazzysmod.client.renderer.entity.RenderGopher;
 import spazzysmod.entity.monster.EntityAlien;
 import spazzysmod.entity.passive.EntityGopher;
