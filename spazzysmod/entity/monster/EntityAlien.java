@@ -444,12 +444,12 @@ public class EntityAlien extends EntityMob
 
         if (par1EntityLivingData1 == null)
         {
-            par1EntityLivingData1 = new EntityZombieGroupData(this, this.worldObj.rand.nextFloat() < 0.05F, this.worldObj.rand.nextFloat() < 0.05F, (EntityZombieINNER1)null);
+            par1EntityLivingData1 = new EntityAlienGroupData(this, this.worldObj.rand.nextFloat() < 0.05F, this.worldObj.rand.nextFloat() < 0.05F, (EntityAlienINNER1)null);
         }
 
-        if (par1EntityLivingData1 instanceof EntityZombieGroupData)
+        if (par1EntityLivingData1 instanceof EntityAlienGroupData)
         {
-            EntityZombieGroupData entityzombiegroupdata = (EntityZombieGroupData)par1EntityLivingData1;
+            EntityAlienGroupData entityzombiegroupdata = (EntityAlienGroupData)par1EntityLivingData1;
 
             if (entityzombiegroupdata.field_142046_b)
             {
