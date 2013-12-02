@@ -11,8 +11,7 @@ import org.lwjgl.input.Mouse;
 import spazzysmod.SpazzysResources;
 import spazzysmod.client.gui.RenderHelper;
 
-public class GuiNewList<T> extends GuiButton 
-{  
+public class GuiNewList<T> extends GuiButton {
 	private boolean dragging;
 	private float slider;
 	private ArrayList<T> itemList;
@@ -54,24 +53,28 @@ public class GuiNewList<T> extends GuiButton
 			numItemToRender = itemList.size();
 		}
 		for (int i = startingItem; i < numItemToRender + startingItem; i++) {
-			if(i != selected){
-			mc.renderEngine.func_110577_a(SpazzysResources.LIST_ITEM_NOT_SELETED);
-			}else{
-				mc.renderEngine.func_110577_a(SpazzysResources.LIST_ITEM_SELECTED);
+			if (i != selected) {
+				mc.renderEngine
+						.func_110577_a(SpazzysResources.LIST_ITEM_NOT_SELETED);
+			} else {
+				mc.renderEngine
+						.func_110577_a(SpazzysResources.LIST_ITEM_SELECTED);
 			}
 			RenderHelper.drawTexturedQuadFit(xPosition + buttonWS, yPosition
 					+ buttonHeight * (1 + i - slider * (itemList.size() - 6)),
 					buttonWidth, buttonHeight, zLevel);
 
-			if (i+1 < itemList.size()
+			if (i + 1 < itemList.size()
 					&& yPosition + buttonHeight
 							* (7 - slider * (itemList.size() - 6))
 							+ buttonHeight < yPosition + width * 136 / 156f) {
-				if(i+1 != selected){
-					mc.renderEngine.func_110577_a(SpazzysResources.LIST_ITEM_NOT_SELETED);
-					}else{
-						mc.renderEngine.func_110577_a(SpazzysResources.LIST_ITEM_SELECTED);
-					}
+				if (i + 1 != selected) {
+					mc.renderEngine
+							.func_110577_a(SpazzysResources.LIST_ITEM_NOT_SELETED);
+				} else {
+					mc.renderEngine
+							.func_110577_a(SpazzysResources.LIST_ITEM_SELECTED);
+				}
 				RenderHelper.drawTexturedQuadFit(
 						xPosition + buttonWS,
 						yPosition + buttonHeight
@@ -98,13 +101,13 @@ public class GuiNewList<T> extends GuiButton
 		}
 
 		mc.renderEngine.func_110577_a(SpazzysResources.GUI_LIST_FORGEGROUND);
-		RenderHelper.drawTexturedQuadFit(xPosition, yPosition,
-				width, height, zLevel);
+		RenderHelper.drawTexturedQuadFit(xPosition, yPosition, width, height,
+				zLevel);
 
 		mc.renderEngine.func_110577_a(SpazzysResources.SLIDER);
 		RenderHelper.drawTexturedQuadFit(this.xPosition + width * 31 / 36f,
-				yPosition + height * 5 / 39f + slider * height * 101f
-						/ 156f, width / 18f, height * 5 / 52f, zLevel);
+				yPosition + height * 5 / 39f + slider * height * 101f / 156f,
+				width / 18f, height * 5 / 52f, zLevel);
 	}
 
 	private void pollWheel() {
@@ -143,32 +146,36 @@ public class GuiNewList<T> extends GuiButton
 					&& y < yPosition + height;
 			if (insideBar) {
 				dragging = true;
-			}else{
+			} else {
 				dragging = false;
 			}
 			if (x > this.xPosition + width * 20 / 216f
 					&& x < xPosition + width * 179 / 216f
 					&& y < yPosition + height * 136 / 156f
 					&& y > yPosition + height * 20 / 156f) {
-				
-				
+
 				int startingItem = (int) (slider * (itemList.size() - 6));
-				
+
 				for (int i = startingItem; i < 6 + startingItem; i++) {
-					RenderHelper.drawTexturedQuadFit(xPosition + buttonWS, yPosition
-							+ buttonHeight * (1 + i - slider * (itemList.size() - 6)),
+					RenderHelper.drawTexturedQuadFit(xPosition + buttonWS,
+							yPosition + buttonHeight
+									* (1 + i - slider * (itemList.size() - 6)),
 							buttonWidth, buttonHeight, this.zLevel);
-					
-					if(x > xPosition + buttonWS && x < xPosition + buttonWS+buttonWidth && y > yPosition
-							+ buttonHeight * (1 + i - slider * (itemList.size() - 6)) && y < yPosition
-							+ buttonHeight * (1 + i - slider * (itemList.size() - 6))+buttonHeight){
+
+					if (x > xPosition + buttonWS
+							&& x < xPosition + buttonWS + buttonWidth
+							&& y > yPosition + buttonHeight
+									* (1 + i - slider * (itemList.size() - 6))
+							&& y < yPosition + buttonHeight
+									* (1 + i - slider * (itemList.size() - 6))
+									+ buttonHeight) {
 						selected = i;
 					}
 				}
 			}
 			focused = true;
 
-			if(selected+1 > itemList.size()){
+			if (selected + 1 > itemList.size()) {
 				selected = -1;
 			}
 			return true;
@@ -185,42 +192,40 @@ public class GuiNewList<T> extends GuiButton
 	}
 
 	private boolean isInside(int x, int y) {
-		return x >= this.xPosition && y >= yPosition
-				&& x < xPosition + width
+		return x >= this.xPosition && y >= yPosition && x < xPosition + width
 				&& y < yPosition + height;
 	}
 
 	public void add(T t) {
 		itemList.add(t);
 	}
-	
-	public int getSelected(){
+
+	public int getSelected() {
 		return selected;
 	}
-	
-	public T getSelectedItem(){
-		try{
-		return itemList.get(selected);
-		}catch(Exception e){
+
+	public T getSelectedItem() {
+		try {
+			return itemList.get(selected);
+		} catch (Exception e) {
 			return null;
 		}
 	}
-	
-	public void remove(int item)
-	{
+
+	public void remove(int item) {
 		itemList.remove(item);
 	}
-	
-	public void remove(T item){
-		for(int i = 0; i < itemList.size(); i++){
-			if(itemList.get(i).equals(item)){
+
+	public void remove(T item) {
+		for (int i = 0; i < itemList.size(); i++) {
+			if (itemList.get(i).equals(item)) {
 				itemList.remove(i);
 				break;
 			}
 		}
 	}
-	
-	public void setList(ArrayList<T> list){
+
+	public void setList(ArrayList<T> list) {
 		itemList = list;
 	}
 }

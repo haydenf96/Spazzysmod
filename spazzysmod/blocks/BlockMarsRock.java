@@ -9,19 +9,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockMarsRock extends Block {
 
-    public BlockMarsRock(int id, Material par2Material) {
-        super(id, par2Material);
-        this.setCreativeTab(SpazzysTabs.tabMars);
-        this.setHardness(1F);
-        this.setResistance(1F);
+	public BlockMarsRock(int id, Material par2Material) {
+		super(id, par2Material);
+		this.setCreativeTab(SpazzysTabs.tabMars);
+		this.setHardness(1F);
+		this.setResistance(1F);
 
-    }
+	}
 
-   @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
-                + this.getUnlocalizedName().substring(5));
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:"
+				+ this.getUnlocalizedName().substring(5));
+	}
 
 }

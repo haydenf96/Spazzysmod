@@ -12,39 +12,43 @@ import spazzysmod.creativetab.SpazzysTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockRocketWorkbench extends Block
-{
-	@SideOnly ( Side.CLIENT )
+public class BlockRocketWorkbench extends Block {
+	@SideOnly(Side.CLIENT)
 	private Icon workbenchIconTop;
 
-	protected BlockRocketWorkbench ( int par1 )
-	{
-		super ( par1, Material.iron );
-		this.setCreativeTab ( SpazzysTabs.tabSolarSystem );
-		this.setHardness ( 1F );
-		this.setResistance ( 1F );
-		this.func_111022_d ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName ().substring ( 5 ) );
-	}
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister)
-	{
-		this.blockIcon = par1IconRegister.registerIcon("spazzysmod:rocketWorkbenchSide");
-		this.workbenchIconTop = par1IconRegister.registerIcon("spazzysmod:rocketWorkbenchTop");
+	protected BlockRocketWorkbench(int par1) {
+		super(par1, Material.iron);
+		this.setCreativeTab(SpazzysTabs.tabSolarSystem);
+		this.setHardness(1F);
+		this.setResistance(1F);
+		this.func_111022_d(SpazzysmodBase.MODID + ":"
+				+ this.getUnlocalizedName().substring(5));
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon ( int par1, int par2 ) {
-		return par1 == 1 ? this.workbenchIconTop : ( par1 == 0 ? Block.blockIron.getBlockTextureFromSide ( par1 ) : ( par1 != 2 && par1 != 4 ? this.blockIcon : this.blockIcon ) );
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.blockIcon = par1IconRegister
+				.registerIcon("spazzysmod:rocketWorkbenchSide");
+		this.workbenchIconTop = par1IconRegister
+				.registerIcon("spazzysmod:rocketWorkbenchTop");
+	}
+
+	@SideOnly(Side.CLIENT)
+	public Icon getIcon(int par1, int par2) {
+		return par1 == 1 ? this.workbenchIconTop : (par1 == 0 ? Block.blockIron
+				.getBlockTextureFromSide(par1)
+				: (par1 != 2 && par1 != 4 ? this.blockIcon : this.blockIcon));
 
 	}
 
-	public boolean onBlockActivated ( World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9 ) {
-		if ( !player.isSneaking () ) {
-			player.openGui(SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID, var1, var2, var3, var4);
+	public boolean onBlockActivated(World var1, int var2, int var3, int var4,
+			EntityPlayer player, int var6, float var7, float var8, float var9) {
+		if (!player.isSneaking()) {
+			player.openGui(SpazzysmodBase.instance, GuiRocketCrafting.GUI_ID,
+					var1, var2, var3, var4);
 
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
 }

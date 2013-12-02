@@ -14,35 +14,36 @@ public class SpazzysBlocks {
 
 	public static Block rocketBlock;
 	public static Block rocketWorkbench;
-	
+
 	public static Block meteorite;
 
-	public static void initBlocks()
-	{
+	public static void initBlocks() {
 		titaniumBlock = new BlockTitaniumBlock(SpazzysConfig.titaniumBlockID,
 				Material.rock).setUnlocalizedName("titaniumBlock");
-		GameRegistry.registerBlock(titaniumBlock, "TitaniumBlock" );
+		GameRegistry.registerBlock(titaniumBlock, "TitaniumBlock");
 		LanguageRegistry.addName(titaniumBlock, "Titanium Ore");
 		GameRegistry.registerWorldGenerator(new SpazzysWorldGenerator());
-		
-		meteorite = new BlockMeteorite(SpazzysConfig.meteoriteID).setUnlocalizedName("meteorite");
+
+		meteorite = new BlockMeteorite(SpazzysConfig.meteoriteID)
+				.setUnlocalizedName("meteorite");
 		GameRegistry.registerBlock(meteorite, "Meteorite");
 		LanguageRegistry.addName(meteorite, "Meteorite");
 
-
-		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron).setUnlocalizedName("launchPad");
+		launchPad = new BlockLaunchPad(SpazzysConfig.launchPadID, Material.iron)
+				.setUnlocalizedName("launchPad");
 		GameRegistry.registerBlock(launchPad, "LunchPad");
 		LanguageRegistry.addName(launchPad, "Launch Pad");
 
 		rocketBlock = new BlockRocketEngine(SpazzysConfig.rocketEngineID,
 				Material.iron).setUnlocalizedName("moonRocket");
-		GameRegistry.registerBlock(rocketBlock, "RocketBlock" );
+		GameRegistry.registerBlock(rocketBlock, "RocketBlock");
 		LanguageRegistry.addName(rocketBlock, "Rocket Engine");
 
-		rocketWorkbench = new BlockRocketWorkbench ( SpazzysConfig.rocketWorkbenchID ).setUnlocalizedName( "rocketWorkbench" ).func_111022_d( "spazzysmod:workbench" );
-		GameRegistry.registerBlock ( rocketWorkbench, "RocketWorkbench" );
-		LanguageRegistry.addName( rocketWorkbench, "Rocket Workbench Alpha" );
-		
+		rocketWorkbench = new BlockRocketWorkbench(
+				SpazzysConfig.rocketWorkbenchID).setUnlocalizedName(
+				"rocketWorkbench").func_111022_d("spazzysmod:workbench");
+		GameRegistry.registerBlock(rocketWorkbench, "RocketWorkbench");
+		LanguageRegistry.addName(rocketWorkbench, "Rocket Workbench Alpha");
 
 		MoonBlocks.initBlocks();
 		MarsBlocks.initBlocks();

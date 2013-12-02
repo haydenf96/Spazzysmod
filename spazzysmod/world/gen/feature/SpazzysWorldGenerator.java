@@ -13,8 +13,8 @@ import cpw.mods.fml.common.IWorldGenerator;
 public class SpazzysWorldGenerator implements IWorldGenerator {
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
-	{
+	public void generate(Random random, int chunkX, int chunkZ, World world,
+			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId) {
 		case -1:
 			generateNether(world, random, chunkX * 16, chunkZ * 16);
@@ -34,32 +34,28 @@ public class SpazzysWorldGenerator implements IWorldGenerator {
 
 	}
 
-	private void generateMoon(World world, Random random, int i, int j)
-	{
-			int randPosX = i + random.nextInt(16);
-			int randPosY = random.nextInt(65);
-			int randPosZ = j + random.nextInt(16);
-			int block = world.getBlockId(i, randPosY, j);
-			
-			if(block == MoonBlocks.moonStone.blockID && randPosY > 60)
-			{
-				new WorldGenMeteor()
-				.generate(world, random, randPosX, randPosY, randPosZ);
-			}		
-	}
-
-	private void generateMarsMeteor(World world, Random random, int i, int j) 
-	{
+	private void generateMoon(World world, Random random, int i, int j) {
 		int randPosX = i + random.nextInt(16);
 		int randPosY = random.nextInt(65);
 		int randPosZ = j + random.nextInt(16);
 		int block = world.getBlockId(i, randPosY, j);
-		
-		if(block == MarsBlocks.marsRock.blockID && randPosY > 60)
-		{
-			new WorldGenMeteor()
-			.generate(world, random, randPosX, randPosY, randPosZ);
-		}		
+
+		if (block == MoonBlocks.moonStone.blockID && randPosY > 60) {
+			new WorldGenMeteor().generate(world, random, randPosX, randPosY,
+					randPosZ);
+		}
+	}
+
+	private void generateMarsMeteor(World world, Random random, int i, int j) {
+		int randPosX = i + random.nextInt(16);
+		int randPosY = random.nextInt(65);
+		int randPosZ = j + random.nextInt(16);
+		int block = world.getBlockId(i, randPosY, j);
+
+		if (block == MarsBlocks.marsRock.blockID && randPosY > 60) {
+			new WorldGenMeteor().generate(world, random, randPosX, randPosY,
+					randPosZ);
+		}
 	}
 
 	private void generateNether(World world, Random random, int i, int j) {
@@ -73,7 +69,7 @@ public class SpazzysWorldGenerator implements IWorldGenerator {
 			int randPosZ = j + random.nextInt(16);
 
 			new WorldGenMinable(SpazzysBlocks.titaniumBlock.blockID, 4)
-			.generate(world, random, randPosX, randPosY, randPosZ);
+					.generate(world, random, randPosX, randPosY, randPosZ);
 		}
 	}
 

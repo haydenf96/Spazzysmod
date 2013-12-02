@@ -26,56 +26,66 @@ import cpw.mods.fml.relauncher.Side;
 public class CommonProxy implements IGuiHandler {
 
 	@Override
-	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
-		TileEntity tile_entity = world.getBlockTileEntity ( x, y, z );
-		
-		if ( ID == GuiRocketCrafting.GUI_ID )
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
+		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+
+		if (ID == GuiRocketCrafting.GUI_ID)
 			return ID == GuiRocketCrafting.GUI_ID
-			&& world.getBlockId ( x, y, z ) == SpazzysBlocks.rocketWorkbench.blockID ? new ContainerRocketWorkbench ( player.inventory, world, x, y, z ) : null;
+					&& world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new ContainerRocketWorkbench(
+					player.inventory, world, x, y, z) : null;
 		return null;
 	}
 
 	@Override
-	public Object getClientGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z ) {
-		TileEntity tile_entity = world.getBlockTileEntity ( x, y, z );
-		
-		if ( ID == GuiPlanets.GUI_ID )
-			return new GuiPlanets ( player );
-		else if ( ID == GuiUniverse.GUI_ID )
-			return new GuiUniverse ( player );
-		else if ( ID == GuiRocketCrafting.GUI_ID )
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
+			int x, int y, int z) {
+		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+
+		if (ID == GuiPlanets.GUI_ID)
+			return new GuiPlanets(player);
+		else if (ID == GuiUniverse.GUI_ID)
+			return new GuiUniverse(player);
+		else if (ID == GuiRocketCrafting.GUI_ID)
 			return ID == GuiRocketCrafting.GUI_ID
-			&& world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new GuiRocketCrafting ( player.inventory, world, x, y, z ) : null;
-		
+					&& world.getBlockId(x, y, z) == SpazzysBlocks.rocketWorkbench.blockID ? new GuiRocketCrafting(
+					player.inventory, world, x, y, z) : null;
+
 		return null;
 	}
-	
-	public void initProxy () {
-		NetworkRegistry.instance ().registerGuiHandler ( SpazzysmodBase.instance, this );
-		
-		SpazzysBlocks.initBlocks ();
 
-		SpazzysItems.initItems ();
-		
-		ReciperManager.craftItems ();
-		
-		SpazzysTabs.nameTabs ();
-		
+	public void initProxy() {
+		NetworkRegistry.instance().registerGuiHandler(SpazzysmodBase.instance,
+				this);
+
+		SpazzysBlocks.initBlocks();
+
+		SpazzysItems.initItems();
+
+		ReciperManager.craftItems();
+
+		SpazzysTabs.nameTabs();
+
 		SpazzysEntitys.registerEntities();
-		
+
 		SpazzysEntitys.registerEntitySpawns();
 
-		SpazzysDimensions.registerDimensions ();
+		SpazzysDimensions.registerDimensions();
 
-		SpazzysAPI.populateUniverse ();
-		
-		TickRegistry.registerTickHandler ( new PlayerTickHandler ( EnumSet.of ( TickType.PLAYER ) ), Side.SERVER );
-		
-		this.registerEntities ();
-		this.registerTickHandlers ();
+		SpazzysAPI.populateUniverse();
+
+		TickRegistry
+				.registerTickHandler(
+						new PlayerTickHandler(EnumSet.of(TickType.PLAYER)),
+						Side.SERVER);
+
+		this.registerEntities();
+		this.registerTickHandlers();
 	}
-	
-	public void registerEntities () {}
-	
-	public void registerTickHandlers () {}
+
+	public void registerEntities() {
+	}
+
+	public void registerTickHandlers() {
+	}
 }

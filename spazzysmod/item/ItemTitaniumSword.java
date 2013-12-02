@@ -10,15 +10,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemTitaniumSword extends ItemSword {
 
-    public ItemTitaniumSword(int par1, EnumToolMaterial par2EnumToolMaterial) {
-        super(par1, par2EnumToolMaterial);
-        this.setCreativeTab(CreativeTabs.tabCombat);
-    }
+	public ItemTitaniumSword(int par1, EnumToolMaterial par2EnumToolMaterial) {
+		super(par1, par2EnumToolMaterial);
+		this.setCreativeTab(CreativeTabs.tabCombat);
+	}
 
-@Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:titaniumSword");
-              
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.itemIcon = par1IconRegister
+				.registerIcon("spazzysmod:titaniumSword");
+
+	}
 }

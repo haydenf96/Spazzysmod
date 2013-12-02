@@ -6,6 +6,8 @@ import spazzysmod.world.SpazzysDimensions;
 public class PlanetMars extends Planet {
 
 	public PlanetMars() {
-		super( "Mars", 1, "PATH TO PANET TEXTURE", -20, -50, SpazzysDimensions.marsDimensionID, SpazzysGalaxies.milkyWay.getGalaxyID(), false );
+		super("Mars", 1, "PATH TO PANET TEXTURE", -20, -50,
+				SpazzysDimensions.marsDimensionID, SpazzysGalaxies.milkyWay
+						.getGalaxyID(), false);
 	}
 }

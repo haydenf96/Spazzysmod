@@ -23,146 +23,152 @@ public class ItemExplosiveBow extends Item {
 	public ItemExplosiveBow(int par1) {
 		super(par1);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
-    private Icon [] bowIcons = new Icon [4];
+	private Icon[] bowIcons = new Icon[4];
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons ( IconRegister iconreg ) {
-        this.itemIcon = iconreg.registerIcon ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName ().substring ( 5 ) );
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconreg) {
+		this.itemIcon = iconreg.registerIcon(SpazzysmodBase.MODID + ":"
+				+ this.getUnlocalizedName().substring(5));
 
-        for ( int i = 1; i < this.bowIcons.length; i++ )
-            this.bowIcons[i] = iconreg.registerIcon ( SpazzysmodBase.MODID + ":" + this.getUnlocalizedName().substring ( 5 ) + "_pull_" + ( i - 1 ) );
-    }
+		for (int i = 1; i < this.bowIcons.length; i++)
+			this.bowIcons[i] = iconreg.registerIcon(SpazzysmodBase.MODID + ":"
+					+ this.getUnlocalizedName().substring(5) + "_pull_"
+					+ (i - 1));
+	}
 
-    @Override
-    public Icon getIcon ( ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining ) {
-        if ( player.getItemInUse() == null )
-            return this.itemIcon;
-        int time = stack.getMaxItemUseDuration () - useRemaining;
-        if ( time >= 18 )
-            return this.bowIcons [3];
-        else if ( time > 13 )
-            return this.bowIcons [2];
-        else if ( time > 0 )
-            return this.bowIcons [1];
+	@Override
+	public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player,
+			ItemStack usingItem, int useRemaining) {
+		if (player.getItemInUse() == null)
+			return this.itemIcon;
+		int time = stack.getMaxItemUseDuration() - useRemaining;
+		if (time >= 18)
+			return this.bowIcons[3];
+		else if (time > 13)
+			return this.bowIcons[2];
+		else if (time > 0)
+			return this.bowIcons[1];
 
-        return this.bowIcons [0];
-    }
+		return this.bowIcons[0];
+	}
 
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
-	{
+	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World,
+			EntityPlayer par3EntityPlayer, int par4) {
 		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 
-		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
+		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer,
+				par1ItemStack, j);
 		MinecraftForge.EVENT_BUS.post(event);
-		if (event.isCanceled())
-		{
+		if (event.isCanceled()) {
 			return;
 		}
 		j = event.charge;
 
-		boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
+		boolean flag = par3EntityPlayer.capabilities.isCreativeMode
+				|| EnchantmentHelper.getEnchantmentLevel(
+						Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-		if (flag || par3EntityPlayer.inventory.hasItem ( SpazzysItems.explosiveArrow.itemID ) )
-		{
-			float f = (float)j / 20.0F;
+		if (flag
+				|| par3EntityPlayer.inventory
+						.hasItem(SpazzysItems.explosiveArrow.itemID)) {
+			float f = (float) j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
 
-			if ((double)f < 0.1D)
-			{
+			if ((double) f < 0.1D) {
 				return;
 			}
 
-			if (f > 1.0F)
-			{
+			if (f > 1.0F) {
 				f = 1.0F;
 			}
 
-			EntityExplosiveArrow explosiveArrow = new EntityExplosiveArrow(par2World, par3EntityPlayer, f * 2.0F);
+			EntityExplosiveArrow explosiveArrow = new EntityExplosiveArrow(
+					par2World, par3EntityPlayer, f * 2.0F);
 
-			if (f == 1.0F)
-			{
+			if (f == 1.0F) {
 				explosiveArrow.setIsCritical(true);
 			}
 
-			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+			int k = EnchantmentHelper.getEnchantmentLevel(
+					Enchantment.power.effectId, par1ItemStack);
 
-			if (k > 0)
-			{
-				explosiveArrow.setDamage(explosiveArrow.getDamage() + (double)k * 0.5D + 0.5D);
+			if (k > 0) {
+				explosiveArrow.setDamage(explosiveArrow.getDamage()
+						+ (double) k * 0.5D + 0.5D);
 			}
 
-			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+			int l = EnchantmentHelper.getEnchantmentLevel(
+					Enchantment.punch.effectId, par1ItemStack);
 
-			if (l > 0)
-			{
+			if (l > 0) {
 				explosiveArrow.setKnockbackStrength(l);
 			}
 
-			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
-			{
+			if (EnchantmentHelper.getEnchantmentLevel(
+					Enchantment.flame.effectId, par1ItemStack) > 0) {
 				explosiveArrow.setFire(100);
 			}
 
 			par1ItemStack.damageItem(1, par3EntityPlayer);
-			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F,
+					1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-			if (flag)
-			{
+			if (flag) {
 				explosiveArrow.canBePickedUp = 2;
-			}
-			else
-			{
-				par3EntityPlayer.inventory.consumeInventoryItem(SpazzysItems.explosiveArrow.itemID);
+			} else {
+				par3EntityPlayer.inventory
+						.consumeInventoryItem(SpazzysItems.explosiveArrow.itemID);
 			}
 
-			if (!par2World.isRemote)
-			{
+			if (!par2World.isRemote) {
 				par2World.spawnEntityInWorld(explosiveArrow);
 			}
 		}
 	}
-	
-	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
 
-    /**
-     * How long it takes to use or consume an item
-     */
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
-    {
-        return 72000;
-    }
+	public ItemStack onEaten(ItemStack par1ItemStack, World par2World,
+			EntityPlayer par3EntityPlayer) {
+		return par1ItemStack;
+	}
 
-    /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.bow;
-    }
+	/**
+	 * How long it takes to use or consume an item
+	 */
+	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+		return 72000;
+	}
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return event.result;
-        }
+	/**
+	 * returns the action that specifies what animation to play when the items
+	 * is being used
+	 */
+	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+		return EnumAction.bow;
+	}
 
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(SpazzysItems.explosiveArrow.itemID))
-        {
-            par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-        }
+	/**
+	 * Called whenever this item is equipped and the right mouse button is
+	 * pressed. Args: itemStack, world, entityPlayer
+	 */
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,
+			EntityPlayer par3EntityPlayer) {
+		ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer,
+				par1ItemStack);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled()) {
+			return event.result;
+		}
 
-        return par1ItemStack;
-    }
+		if (par3EntityPlayer.capabilities.isCreativeMode
+				|| par3EntityPlayer.inventory
+						.hasItem(SpazzysItems.explosiveArrow.itemID)) {
+			par3EntityPlayer.setItemInUse(par1ItemStack,
+					this.getMaxItemUseDuration(par1ItemStack));
+		}
+
+		return par1ItemStack;
+	}
 }

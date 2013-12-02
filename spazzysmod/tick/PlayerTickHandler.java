@@ -13,64 +13,59 @@ import spazzysmod.world.SpazzysDimensions;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
-public class PlayerTickHandler implements ITickHandler
-{
+public class PlayerTickHandler implements ITickHandler {
 	static Minecraft mc = Minecraft.getMinecraft();
 	private final EnumSet<TickType> ticksToGet;
 
-	public PlayerTickHandler(EnumSet<TickType> ticksToGet)
-	{  
+	public PlayerTickHandler(EnumSet<TickType> ticksToGet) {
 		this.ticksToGet = ticksToGet;
 	}
 
 	@Override
-	public void tickStart(EnumSet<TickType> type, Object... tickData)
-	{
-		playerTick((EntityPlayer)tickData[0]);
+	public void tickStart(EnumSet<TickType> type, Object... tickData) {
+		playerTick((EntityPlayer) tickData[0]);
 	}
 
 	@Override
-	public void tickEnd(EnumSet<TickType> type, Object... tickData)
-	{
-		playerTick((EntityPlayer)tickData[0]);
+	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+		playerTick((EntityPlayer) tickData[0]);
 	}
+
 	@Override
-	public EnumSet<TickType> ticks()
-	{   
+	public EnumSet<TickType> ticks() {
 		return ticksToGet;
 	}
+
 	@Override
-	public String getLabel()
-	{
+	public String getLabel() {
 		return "PlayerTick";
 	}
 
-	
-	public static void playerTick(EntityPlayer player)
-	{  		
-		for (int i = 0; i < PlanetAPI.getPlanetsList().size(); i++) 
-		{
-			if(PlanetAPI.getPlanetsList().get(i).getHasPlanetBreathableOxygen() == false && PlanetAPI.getPlanetsList().get(i).getPlanetDimensionID() == player.dimension)
-			{
+	public static void playerTick(EntityPlayer player) {
+		for (int i = 0; i < PlanetAPI.getPlanetsList().size(); i++) {
+			if (PlanetAPI.getPlanetsList().get(i)
+					.getHasPlanetBreathableOxygen() == false
+					&& PlanetAPI.getPlanetsList().get(i).getPlanetDimensionID() == player.dimension) {
 				ItemStack currentHelmet = player.getCurrentArmor(3);
 				ItemStack currentJacket = player.getCurrentArmor(2);
 				ItemStack currentPants = player.getCurrentArmor(1);
 				ItemStack currentFeet = player.getCurrentArmor(0);
-				if(currentHelmet != null && currentHelmet.itemID == SpazzysItems.spaceHelmet.itemID &&
-						currentJacket != null && currentJacket.itemID == SpazzysItems.spaceJacket.itemID &&
-								currentPants != null && currentPants.itemID == SpazzysItems.spacePants.itemID &&
-										currentFeet != null && currentFeet.itemID == SpazzysItems.spaceShoes.itemID)
-				{
-					
+				if (currentHelmet != null
+						&& currentHelmet.itemID == SpazzysItems.spaceHelmet.itemID
+						&& currentJacket != null
+						&& currentJacket.itemID == SpazzysItems.spaceJacket.itemID
+						&& currentPants != null
+						&& currentPants.itemID == SpazzysItems.spacePants.itemID
+						&& currentFeet != null
+						&& currentFeet.itemID == SpazzysItems.spaceShoes.itemID) {
+
 					currentHelmet.damageItem(1, player);
 					currentJacket.damageItem(1, player);
 					currentPants.damageItem(1, player);
 					currentFeet.damageItem(1, player);
-					
-				}
-				else
-				{
-					player.attackEntityFrom(DamageSource.inWall, 1F);			
+
+				} else {
+					player.attackEntityFrom(DamageSource.inWall, 1F);
 				}
 
 			}

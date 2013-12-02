@@ -13,7 +13,7 @@ public class SpazzysConfig {
 	public static int redRockID;
 	public static int rocketEngineID;
 	public static int rocketWorkbenchID;
-	
+
 	public static int meteoriteID;
 
 	public static int titaniumIngotID;
@@ -33,11 +33,9 @@ public class SpazzysConfig {
 	public static int spacePantsID;
 	public static int spaceShoesID;
 
-
 	private static Configuration config;
 
-	public static void initConfig(Configuration configuration) 
-	{
+	public static void initConfig(Configuration configuration) {
 		config = configuration;
 		config.load();
 
@@ -57,15 +55,16 @@ public class SpazzysConfig {
 		meteoriteID = config.getTerrainBlock(Configuration.CATEGORY_BLOCK,
 				"Meteorite ID", 2502, "MeteoriteID").getInt();
 
-		rocketEngineID = config.get (Configuration.CATEGORY_BLOCK,
+		rocketEngineID = config.get(Configuration.CATEGORY_BLOCK,
 				"Rocket Block ID", 2900).getInt();
 
-		launchPadID = config.get(Configuration.CATEGORY_BLOCK,
-				"Launch Pad ID", 2501).getInt();
-		
-		rocketWorkbenchID = config.get ( Configuration.CATEGORY_BLOCK, "Workbench ID", 2345 ).getInt ();
+		launchPadID = config.get(Configuration.CATEGORY_BLOCK, "Launch Pad ID",
+				2501).getInt();
 
-		//Items
+		rocketWorkbenchID = config.get(Configuration.CATEGORY_BLOCK,
+				"Workbench ID", 2345).getInt();
+
+		// Items
 		titaniumIngotID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Ingot ID", 5000).getInt();
 		titaniumSwordID = config.get(Configuration.CATEGORY_ITEM,
@@ -75,11 +74,10 @@ public class SpazzysConfig {
 		explosiveBowID = config.get(Configuration.CATEGORY_ITEM,
 				"Explosive Bow ID", 5007).getInt();
 
-		spaceshipID = config.get(Configuration.CATEGORY_ITEM,
-				"Spaceship ID", 5008).getInt();
+		spaceshipID = config.get(Configuration.CATEGORY_ITEM, "Spaceship ID",
+				5008).getInt();
 
-		
-		//Armor
+		// Armor
 		titaniumHelmetID = config.get(Configuration.CATEGORY_ITEM,
 				"Titanium Helmet ID", 5002).getInt();
 		titaniumChestplateID = config.get(Configuration.CATEGORY_ITEM,

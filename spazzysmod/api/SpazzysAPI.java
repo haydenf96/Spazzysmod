@@ -4,7 +4,7 @@ import spazzysmod.api.galaxies.GalaxyAPI;
 
 public class SpazzysAPI {
 
-	public static void populateUniverse () {
-		GalaxyAPI.populateUniverse ();
+	public static void populateUniverse() {
+		GalaxyAPI.populateUniverse();
 	}
 }

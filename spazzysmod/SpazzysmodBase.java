@@ -13,34 +13,35 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = SpazzysmodBase.MODID, name = "Spazzy's Mod", version = "V 0.8")
-@NetworkMod ( clientSideRequired = true, serverSideRequired = false )
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class SpazzysmodBase {
 
 	public static final String MODID = "spazzysmod";
-	
-	@Instance ( SpazzysmodBase.MODID )
+
+	@Instance(SpazzysmodBase.MODID)
 	public static SpazzysmodBase instance;
 
-	@SidedProxy ( clientSide = "spazzysmod.CommonProxy", serverSide = "spazzysmod.client.ClientProxy" )
+	@SidedProxy(clientSide = "spazzysmod.CommonProxy", serverSide = "spazzysmod.client.ClientProxy")
 	public static CommonProxy proxy;
-	
-	
+
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		SpazzysConfig.initConfig(new Configuration(event.getSuggestedConfigurationFile()));
+	public void preInit(FMLPreInitializationEvent event) {
+		SpazzysConfig.initConfig(new Configuration(event
+				.getSuggestedConfigurationFile()));
 	}
-	
-	public static void travelToDimension(int dimensionID, EntityPlayerMP player)
-	{
-		EntityPlayerMP thePlayer =  player;
-		
-		thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer,dimensionID,new TeleporterSpazzys(thePlayer.mcServer.worldServerForDimension(dimensionID)));
+
+	public static void travelToDimension(int dimensionID, EntityPlayerMP player) {
+		EntityPlayerMP thePlayer = player;
+
+		thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(
+				thePlayer,
+				dimensionID,
+				new TeleporterSpazzys(thePlayer.mcServer
+						.worldServerForDimension(dimensionID)));
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{		
+	public void init(FMLInitializationEvent event) {
 		proxy.initProxy();
 	}
 }

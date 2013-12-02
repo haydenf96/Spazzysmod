@@ -4,8 +4,7 @@ import java.util.List;
 
 import spazzysmod.planets.Planet;
 
-public class Galaxy
-{
+public class Galaxy {
 	/**
 	 * The name of the galaxy
 	 */
@@ -33,10 +32,10 @@ public class Galaxy
 
 	/**
 	 * 
-	 * @param par1Str - The name of the galaxy
+	 * @param par1Str
+	 *            - The name of the galaxy
 	 */
-	public Galaxy ( String par1Str, int par2, int par3, int par4, String par5Str ) 
-	{
+	public Galaxy(String par1Str, int par2, int par3, int par4, String par5Str) {
 		this.galaxyName = par1Str;
 		this.galaxyID = par2;
 		this.xCoord = par3;
@@ -44,11 +43,11 @@ public class Galaxy
 		this.texturePath = par5Str;
 	}
 
-	public String getGalaxyName () {
+	public String getGalaxyName() {
 		return this.galaxyName;
 	}
 
-	public int getGalaxyID () {
+	public int getGalaxyID() {
 		return this.galaxyID;
 	}
 }

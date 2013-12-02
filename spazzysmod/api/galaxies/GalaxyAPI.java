@@ -14,34 +14,30 @@ public class GalaxyAPI {
 
 	private static List<Galaxy> galaxyList = new ArrayList<Galaxy>();
 
-	public static void populateUniverse ()
-	{
-		System.out.println ( "[Spazzys Galaxy API] Populating the Universe..." );
+	public static void populateUniverse() {
+		System.out.println("[Spazzys Galaxy API] Populating the Universe...");
 
-		GalaxyAPI.registerGalaxy ( SpazzysGalaxies.milkyWay );
+		GalaxyAPI.registerGalaxy(SpazzysGalaxies.milkyWay);
 
-		System.out.println ( "[Spazzys Galaxy API] Populated!" );
-		
-		PlanetAPI.populateUniverse ();
+		System.out.println("[Spazzys Galaxy API] Populated!");
+
+		PlanetAPI.populateUniverse();
 	}
 
-
-	public static void registerGalaxy ( Galaxy galaxy ) 
-	{
-		galaxyList.add(galaxy.getGalaxyID(), galaxy );
+	public static void registerGalaxy(Galaxy galaxy) {
+		galaxyList.add(galaxy.getGalaxyID(), galaxy);
 	}
 
-	public static Galaxy getGalaxy ( int galaxyID ) {
-		return galaxyList.get( galaxyID );
+	public static Galaxy getGalaxy(int galaxyID) {
+		return galaxyList.get(galaxyID);
 	}
 
-	public static String getGalaxyName ( int galaxyID ) {
-		return galaxyList.get( galaxyID ).getGalaxyName();
+	public static String getGalaxyName(int galaxyID) {
+		return galaxyList.get(galaxyID).getGalaxyName();
 	}
 
-
-	public static List<Galaxy> getGalaxiesList () {
+	public static List<Galaxy> getGalaxiesList() {
 		return galaxyList;
 	}
-	
+
 }

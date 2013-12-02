@@ -9,15 +9,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemTitaniumLeggings extends ItemArmor {
 
-    public ItemTitaniumLeggings(int par1,
-            EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
-        super(par1, par2EnumArmorMaterial, par3, par4);
-    }
+	public ItemTitaniumLeggings(int par1,
+			EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
+		super(par1, par2EnumArmorMaterial, par3, par4);
+	}
 
-@Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon("spazzysmod:TitaniumLeggings");
-              
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister) {
+		this.itemIcon = par1IconRegister
+				.registerIcon("spazzysmod:TitaniumLeggings");
+
+	}
 }
