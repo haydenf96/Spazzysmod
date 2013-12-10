@@ -29,25 +29,19 @@ public class SpazzysEntitys {
 		EntityRegistry.addSpawn(EntityAlien.class, 20, 2, 4,
 				EnumCreatureType.monster, SpazzysBiomes.marsBiome);
 
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.spazzyssmod.Gopher.name", "en_US", "Gopher");
+		LanguageRegistry.instance().addStringLocalization("entity.spazzysmod.Gopher.name", "en_US", "Gopher");
 		registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
 
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.spazzyssmod.Alien.name", "en_US", "Alien");
-		registerEntityEgg(EntityGopher.class, 0x7F3300, 0x8E3900);
+		LanguageRegistry.instance().addStringLocalization("entity.spazzysmod.Alien.name", "en_US", "Alien");
+		registerEntityEgg(EntityAlien.class, 0x7F3300, 0x8E3900);
 	}
 
 	public static void registerEntities() {
-		EntityRegistry.registerModEntity(EntityGopher.class, "Gopher", 1,
-				SpazzysmodBase.instance, 80, 1, true);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGopher.class,
-				new RenderGopher());
+		EntityRegistry.registerModEntity(EntityGopher.class, "Gopher", 1, SpazzysmodBase.instance, 80, 1, true);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGopher.class, new RenderGopher());
 
-		EntityRegistry.registerModEntity(EntityAlien.class, "Alien", 1,
-				SpazzysmodBase.instance, 80, 1, true);
-		RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class,
-				new RenderAlien());
+		EntityRegistry.registerModEntity(EntityAlien.class, "Alien", 1, SpazzysmodBase.instance, 80, 1, true);
+		RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class, new RenderAlien());
 	}
 
 	public static int getUniqueEntityId() {

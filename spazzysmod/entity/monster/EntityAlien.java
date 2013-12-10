@@ -38,13 +38,9 @@ import net.minecraft.world.World;
 
 public class EntityAlien extends EntityMob {
 
-	protected static final Attribute field_110186_bp = (new RangedAttribute(
-			"zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D))
-			.func_111117_a("Spawn Reinforcements Chance");
-	private static final UUID field_110187_bq = UUID
-			.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
-	private static final AttributeModifier field_110188_br = new AttributeModifier(
-			field_110187_bq, "Baby speed boost", 0.5D, 1);
+	protected static final Attribute field_110186_bp = (new RangedAttribute("zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).func_111117_a("Spawn Reinforcements Chance");
+	private static final UUID field_110187_bq = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
+	private static final AttributeModifier field_110188_br = new AttributeModifier(field_110187_bq, "Baby speed boost", 0.5D, 1);
 
 	/**
 	 * Ticker used to determine the time remaining for this zombie to convert
@@ -54,6 +50,7 @@ public class EntityAlien extends EntityMob {
 
 	public EntityAlien(World par1World) {
 		super(par1World);
+		System.out.println("RUN FOR YOUR LIFE!!! THE SYSTEMS GONNA CRASH!!!!!!!");
 		this.getNavigator().setBreakDoors(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIBreakDoor(this));
@@ -458,10 +455,7 @@ public class EntityAlien extends EntityMob {
 		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
 
 		if (par1EntityLivingData1 == null) {
-			par1EntityLivingData1 = new EntityAlienGroupData(this,
-					this.worldObj.rand.nextFloat() < 0.05F,
-					this.worldObj.rand.nextFloat() < 0.05F,
-					(EntityAlienINNER1) null);
+			par1EntityLivingData1 = new EntityAlienGroupData(this, this.worldObj.rand.nextFloat() < 0.05F, this.worldObj.rand.nextFloat() < 0.05F, (EntityAlienINNER1) null);
 		}
 
 		if (par1EntityLivingData1 instanceof EntityAlienGroupData) {
@@ -476,8 +470,8 @@ public class EntityAlien extends EntityMob {
 			}
 		}
 
-		this.addRandomArmor();
-		this.enchantEquipment();
+//		this.addRandomArmor();
+//		this.enchantEquipment();
 
 		if (this.getCurrentItemOrArmor(4) == null) {
 			Calendar calendar = this.worldObj.getCurrentDate();

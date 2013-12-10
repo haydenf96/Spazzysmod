@@ -13,11 +13,11 @@ import spazzysmod.world.SpazzysDimensions;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
-public class PlayerTickHandler implements ITickHandler {
+public class PlayerOxygenTickHandler implements ITickHandler {
 	static Minecraft mc = Minecraft.getMinecraft();
 	private final EnumSet<TickType> ticksToGet;
 
-	public PlayerTickHandler(EnumSet<TickType> ticksToGet) {
+	public PlayerOxygenTickHandler(EnumSet<TickType> ticksToGet) {
 		this.ticksToGet = ticksToGet;
 	}
 
@@ -38,7 +38,7 @@ public class PlayerTickHandler implements ITickHandler {
 
 	@Override
 	public String getLabel() {
-		return "PlayerTick";
+		return "PlayerOxygenTick";
 	}
 
 	public static void playerTick(EntityPlayer player) {

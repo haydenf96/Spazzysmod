@@ -298,9 +298,9 @@ public class EntityGopher extends EntityTameable {
 
 						if (itemstack.stackSize <= 0) {
 							par1EntityPlayer.inventory
-									.setInventorySlotContents(
-											par1EntityPlayer.inventory.currentItem,
-											(ItemStack) null);
+							.setInventorySlotContents(
+									par1EntityPlayer.inventory.currentItem,
+									(ItemStack) null);
 						}
 
 						return true;
@@ -381,8 +381,7 @@ public class EntityGopher extends EntityTameable {
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 
-		if (!this.worldObj.isRemote && this.isShaking && !this.field_70928_h
-				&& !this.hasPath() && this.onGround) {
+		if (!this.worldObj.isRemote && this.isShaking && !this.field_70928_h && !this.hasPath() && this.onGround) {
 			this.field_70928_h = true;
 			this.timeWolfIsShaking = 0.0F;
 			this.prevTimeWolfIsShaking = 0.0F;

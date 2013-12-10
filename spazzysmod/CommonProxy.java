@@ -15,7 +15,7 @@ import spazzysmod.crafting.ReciperManager;
 import spazzysmod.creativetab.SpazzysTabs;
 import spazzysmod.entity.SpazzysEntitys;
 import spazzysmod.item.SpazzysItems;
-import spazzysmod.tick.PlayerTickHandler;
+import spazzysmod.tick.PlayerOxygenTickHandler;
 import spazzysmod.world.SpazzysDimensions;
 import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -76,7 +76,7 @@ public class CommonProxy implements IGuiHandler {
 
 		TickRegistry
 				.registerTickHandler(
-						new PlayerTickHandler(EnumSet.of(TickType.PLAYER)),
+						new PlayerOxygenTickHandler(EnumSet.of(TickType.PLAYER)),
 						Side.SERVER);
 
 		this.registerEntities();
